@@ -1,0 +1,136 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar Container */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  padding: 16px 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  flex-wrap: wrap;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Brand */
+.navbar-logo {
+  color: #fff;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Center Search Box */
+.navbar-center {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  gap: 10px;
+  max-width: 600px;
+}
+
+.search-bar {
+  padding: 12px 18px;
+  border-radius: 30px;
+  border: none;
+  width: 60%;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+}
+
+.search-bar:focus {
+  box-shadow: 0 0 10px #00c6ff;
+}
+
+/* Search Button */
+.search-button {
+  padding: 10px 16px;
+  background: #00c6ff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+.search-button:hover {
+  background: #0079c1;
+}
+
+/* Right Actions */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Location Dropdown */
+.location-select {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  background: white;
+  color: #333;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+/* Login Button */
+.login-button {
+  padding: 10px 20px;
+  background: linear-gradient(to right, #ff512f, #dd2476);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.login-button:hover {
+  transform: scal
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.singup{
+  display: inline-block;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  
+}
+.btn:hover {
+  background: linear-gradient(135deg, #0056b3, #93a1ae);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}

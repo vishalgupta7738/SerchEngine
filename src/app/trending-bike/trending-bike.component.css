@@ -1,0 +1,38 @@
+.home-section {
+  text-align: center;
+  padding: 40px;
+  background-color: #f9f9f9;
+}
+
+.home-section h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.bike-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  justify-items: center;
+  align-items: center;
+}
+
+.bike-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.bike-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.bike-card img {
+  width: 350px;
+  height: 300px;
+  object-fit: contain;
+}

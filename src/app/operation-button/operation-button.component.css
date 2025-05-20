@@ -1,0 +1,61 @@
+.bikeop {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 30px 0;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+.bodyOpearation {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #ffffff);
+  min-height: 100vh;
+
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 110px;
+  margin-top: 80px;
+  flex-wrap: wrap;
+}
+
+/* Common button styling */
+.button-container button {
+  height: 100px;
+  width: 100px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Individual button colors */
+.btnInsert {
+  background-color: #28a745; /* Green */
+}
+
+.btnUpdate {
+  background-color: #007bff; /* Blue */
+}
+
+.btnDelete {
+  background-color: #dc3545; /* Red */
+}
+
+.btnView {
+  background-color: #17a2b8; /* Cyan */
+}
+
+/* Hover effect */
+.button-container button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}

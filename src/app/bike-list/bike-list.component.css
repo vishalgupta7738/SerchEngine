@@ -1,0 +1,32 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+/* Header Styling */
+th {
+  background-color:yellow;  
+  color: black;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Cell Styling */
+td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Zebra Stripes */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Hover Effect */
+tr:hover {
+  background-color: #d1ecf1;
+}
