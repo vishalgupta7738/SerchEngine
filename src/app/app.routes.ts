@@ -11,6 +11,7 @@ import { OperationButtonComponent } from './operation-button/operation-button.co
 import { UpdateBikeComponent } from './update-bike/update-bike.component';
 import { DeleteBikeComponent } from './delete-bike/delete-bike.component';
 import { BikeListComponent } from './bike-list/bike-list.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 export const routes: Routes = [
 
@@ -23,7 +24,8 @@ export const routes: Routes = [
     {path : 'Add' , component:BikeCrudComponent},
     {path : 'Update' , component:UpdateBikeComponent},
     {path : 'Delete' , component:DeleteBikeComponent},
-    {path : 'BikeList' , component:BikeListComponent}
+    {path : 'BikeList' , component:BikeListComponent},
+    {path : 'User' , component:UserDetailsComponent}
 
     
 ];

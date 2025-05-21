@@ -42,6 +42,7 @@ if(this.editMode)
     
     },
     error => {alert('❌ Update failed!')
+      console.log(error);
     }
   );
 

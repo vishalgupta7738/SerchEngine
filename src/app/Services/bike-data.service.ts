@@ -12,7 +12,6 @@ export class BikeDataService {
 
   getAllBikes(): Observable<any>{
     return this.Http.get(this.apiUrl);
-
   }
 
   // post
@@ -28,7 +27,7 @@ export class BikeDataService {
 
   UpdateBike(bikeId : number , bike : any )
   {
-    // return this.Http.put(`https://localhost:7183/api/Bike/${bikeId}` , bike);
+    
     return this.Http.put(this.UpdateUrl , bike);
 
   }
@@ -38,6 +37,17 @@ export class BikeDataService {
   // }
 
   
+      private DeleteUrl = 'https://localhost:7183/api/Bike';
+  
+     deleteBikeById(bikeId : number) : Observable<any>
+     {
+          // return this.Http.delete(`https://localhost:7183/api/Bike/${bikeId}`);
+
+          const url = (`${this.DeleteUrl}/${bikeId}`);
+          console.log(bikeId);
+          return this.Http.delete(url);
+     }
+     
   }
 
 

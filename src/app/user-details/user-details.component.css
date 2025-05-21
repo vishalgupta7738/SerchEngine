@@ -1,0 +1,31 @@
+.table {
+  width: 100%;
+  border-collapse: collapse; 
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 20px;
+  background-color: #fdfdfd;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styling */
+.table thead th {
+  background-color: yellow;
+  color: black;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #dee2e6;
+}
+
+/* Body Styling */
+.table tbody td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #dee2e6;
+  background-color: #ffffff;
+}
+
+/* Hover Effect */
+.table tbody tr:hover {
+  background-color: #f1f1f1;
+  transition: 0.2s;
+}
