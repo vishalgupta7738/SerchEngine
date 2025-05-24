@@ -33,7 +33,7 @@ export class BikeCrudComponent {
     cc: Number(this.bikeForm.value.cc),
     brand: this.bikeForm.value.brand,
     price: Number(this.bikeForm.value.price),
-    year: Number(this.bikeForm.value.year)
+    year: Number(this.bikeForm.value.year)  
   }
 
  console.log(this.bikeForm.value);  
@@ -48,19 +48,10 @@ this.bikeService.InsertBike(formData).subscribe(
     alert('❌ Something went wrong!');
     console.log(error);
   }
-  
-);
-}
 
-
-
-
+ )};
 resetForm(): void {
 this.bikeForm.reset();
 }
 
-
-
 }
-
-

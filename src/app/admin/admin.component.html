@@ -1,11 +1,27 @@
 <body>
 <div class="dashboard-container">
   <h1 class="msg">Welcome to Admin Dashboard</h1>
+      <button type="button" class="btnReq" routerLink="/Request" style="border-radius: 50px; margin-left: 90%;"> {{objusercountstore.userId}} Request</button>
+
+    <!-- <div class="counter"  style="margin-left: 90%;">
+    <button type="button" class="btnReq" style="border-radius: 50px;"> {{objusercountstore.userId}} Request</button>
+  </div> -->
 
   <div class="button-wrapper">
     <a routerLink="/Bike" class="btn-link bikebtn">🚴 Bike Operation</a>
     <a routerLink="/User" class="btn-link userbtn">👤 User Details</a>
     <a routerLink="/" class="btn-link viewbtn">📜 View All Search History</a>
   </div>
+  <br>
+       <button (click)="logout()"  class="logout">Logout</button>
+
 </div>
+
+
 </body>
+
+
+
+   
+
+

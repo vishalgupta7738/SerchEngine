@@ -7,11 +7,18 @@ import { Observable } from 'rxjs';
 })
 export class UserDetailsService {
 
-  private ApiUrl = 'https://localhost:7183/api/UserCRUD';
+  private ApiUrl = 'https://localhost:7183/api/Admin/GetAllUserRequest';
 
   constructor(private Http : HttpClient) { }
 
   getUserDetails() : Observable<any>{
     return this.Http.get(this.ApiUrl);
   }
+
+  ChangeConfirmUserStatuse(UserChangeStatus:{})
+{
+  return this.Http.put('https://localhost:7183/api/Admin/AllUserDetails',UserChangeStatus);
+}
+
+
 }

@@ -1,0 +1,59 @@
+.main-container {
+  background: #eaf8f9;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #1f2d3d;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.button-container {
+  display: flex;
+  gap: 70px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.action-button {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  font-weight: bold;
+  color: white;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.action-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* .insert {
+  background-color: #28a745;
+} */
+
+.update {
+  background-color: #007bff;
+}
+
+.delete {
+  background-color: #dc3545;
+}
+
+.view {
+  background-color: #17a2b8;
+}

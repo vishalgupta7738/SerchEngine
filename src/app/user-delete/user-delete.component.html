@@ -1,0 +1,15 @@
+<div class="delete-form-container">
+  <h2 class="delete-form-title">🗑️ Delete User</h2>
+
+<form [formGroup]="deleteForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>User ID</label>
+      <input type="text"formControlName="userId" class="form-control" placeholder="Enter User ID to Delete">
+    </div>
+
+    <div class="button-group">
+      <button type="submit" class="btn btn-delete">Delete</button>
+      <button type="reset" class="btn btn-clear" (click)="resetForm()">Clear</button>
+    </div>
+  </form>
+</div>

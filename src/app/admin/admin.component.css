@@ -65,3 +65,51 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   opacity: 0.95;
 }
+
+.counter {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.btnReq {
+  background-color: red;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 6px rgba(5, 1, 1, 0.1); 
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btnReq:hover {
+  background-color: green;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.logout {
+  background-color: #dc3545; /* Bootstrap Danger Red */
+  color: white;
+  padding: 10px 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logout:hover {
+  background-color: green;
+  transform: scale(1.05);
+}
+
+.logout:active {
+  transform: scale(0.98);
+}
+
+

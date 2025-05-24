@@ -1,8 +1,8 @@
 import { Component , OnInit  } from '@angular/core';
 import { BikeDataService } from '../Services/bike-data.service';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-bike-list',
@@ -16,14 +16,40 @@ export class BikeListComponent implements OnInit{
 Bikes : any[] = [];
 
 constructor(private bikeService : BikeDataService){}
-
+  
 ngOnInit(){
-  this.bikeService.getAllBikes().subscribe({
-    next: data => this.Bikes = data,
+  // this.bikeService.getAllBikes().subscribe({
+  //   next: data => this.Bikes = data,
     // error: err => console.error(err)
+   this.bikeService.getAllBikes().subscribe({
+      next: data => {
+        console.log("Data from API : " , data);
+        this.Bikes = data;
+      },
+      error : err => console.error("API error : " , err)
+    });
+}
 
-  });
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 
-}
+
+
+
+

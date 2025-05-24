@@ -18,7 +18,7 @@ constructor(private bikeService : BikeDataService){}
     Id : new FormControl(),
   })
 
-  onDelete(){
+  onSubmit(){
     const bikeId = this.deleteForm.value.Id
     
     this.bikeService.deleteBikeById(Number(bikeId)).subscribe(
