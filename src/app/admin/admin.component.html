@@ -1,27 +1,23 @@
 <body>
-<div class="dashboard-container">
-  <h1 class="msg">Welcome to Admin Dashboard</h1>
-      <button type="button" class="btnReq" routerLink="/Request" style="border-radius: 50px; margin-left: 90%;"> {{objusercountstore.userId}} Request</button>
+  <div class="dashboard-container">
+    <h1 class="msg">Welcome to Admin Dashboard</h1>
 
-    <!-- <div class="counter"  style="margin-left: 90%;">
-    <button type="button" class="btnReq" style="border-radius: 50px;"> {{objusercountstore.userId}} Request</button>
-  </div> -->
+    <button
+      type="button"
+      class="btnReq"
+      routerLink="/PendingRequest"
+      style="margin-left: auto; margin-bottom: 30px;"
+    >
+      🔔 {{ objusercountstore.userId }} Request
+    </button>
 
-  <div class="button-wrapper">
-    <a routerLink="/Bike" class="btn-link bikebtn">🚴 Bike Operation</a>
-    <a routerLink="/User" class="btn-link userbtn">👤 User Details</a>
-    <a routerLink="/" class="btn-link viewbtn">📜 View All Search History</a>
+    <div class="button-wrapper">
+      <a routerLink="/Bike" class="btn-link bikebtn">🚴 Bike Operation</a>
+      <a routerLink="/User" class="btn-link userbtn">👤 User Details</a>
+      <a routerLink="/userSearchHistory" class="btn-link viewbtn">📜 Users Search History</a>
+      <a routerLink="/report" class="btn-link reportbtn">📊 Report</a>
+    </div>
+
+    <button (click)="logout()" class="logout">Logout</button>
   </div>
-  <br>
-       <button (click)="logout()"  class="logout">Logout</button>
-
-</div>
-
-
 </body>
-
-
-
-   
-
-

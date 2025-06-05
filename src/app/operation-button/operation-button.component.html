@@ -1,4 +1,4 @@
-<body class="bodyOpearation">
+<!-- <body class="bodyOpearation">
 <h2 class="bikeop"> 🏍️ Bike Management</h2>
 <div class="button-container">
   <button type="button" class="btnInsert" routerLink="/Add">Insert</button>
@@ -6,4 +6,26 @@
   <button type="button" class="btnDelete" routerLink="/Delete">Delete</button>
   <button type="button" class="btnView"  routerLink="/BikeList">View</button>
 </div>
+</body> -->
+
+<body class="bodyOpearation">
+  <h2 class="bikeop">🏍️ Bike Management</h2>
+  <div class="card-container">
+    <div class="operation-card insert" routerLink="/Add">
+      <span>➕</span>
+      <p>Insert</p>
+    </div>
+    <div class="operation-card update" routerLink="/Update">
+      <span>✏️</span>
+      <p>Update</p>
+    </div>
+    <div class="operation-card delete" routerLink="/Delete">
+      <span>🗑️</span>
+      <p>Delete</p>
+    </div>
+    <div class="operation-card view" routerLink="/BikeList">
+      <span>📋</span>
+      <p>View</p>
+    </div>
+  </div>
 </body>

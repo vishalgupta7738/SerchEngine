@@ -15,10 +15,22 @@ export class UserDetailsService {
     return this.Http.get(this.ApiUrl);
   }
 
+
   ChangeConfirmUserStatuse(UserChangeStatus:{})
 {
-  return this.Http.put('https://localhost:7183/api/Admin/AllUserDetails',UserChangeStatus);
+  return this.Http.put('https://localhost:7183/api/Email',UserChangeStatus);
 }
 
+UserRegister(userdata={})
+{
+ return this.Http.post('https://localhost:7183/api/User/UserRegister',userdata);
+}
+
+
+private Penddingurl = 'https://localhost:7183/api/UserCRUD/getuserdata'
+
+getPendingRequest(){
+  return this.Http.get(this.Penddingurl)
+}
 
 }

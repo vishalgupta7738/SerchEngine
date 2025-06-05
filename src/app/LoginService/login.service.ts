@@ -11,12 +11,18 @@ export class LoginService {
 
   constructor(private Http : HttpClient) { }
 
-  login( credentials : {Email: string; Password : string}) : Observable<any>{
-    return this.Http.post(`https://localhost:7183/api/LoginJwt/Login` , credentials);
+  login( credentials ={}) : Observable<any>{
+    return this.Http.post('https://localhost:7183/api/LoginJwt/Login', credentials);
+}
 
-    
+private updateUrl = 'https://localhost:7183/api/User/UserFirstLogin';
+GetDataForPass(Userdata={}){
+ return this.Http.put(this.updateUrl ,Userdata);
 
   }
 
 
 }
+
+
+

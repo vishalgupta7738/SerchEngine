@@ -1,61 +1,109 @@
-.bikeop {
-  text-align: center;
-  font-size: 2.5rem;
-  margin: 30px 0;
-  color: #2c3e50;
-  font-weight: bold;
-}
-
 .bodyOpearation {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #e0f7fa, #ffffff);
   min-height: 100vh;
-
-}
-
-.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+   background-image: url('https://images7.alphacoders.com/594/thumb-1920-594433.jpg');
+    background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  gap: 110px;
-  margin-top: 80px;
-  flex-wrap: wrap;
+  align-items: center;
 }
 
-/* Common button styling */
-.button-container button {
-  height: 100px;
-  width: 100px;
-  border: none;
-  color: white;
+
+
+.bikeop {
+  text-align: center;
+  font-size: 3.8rem;
+  margin: 40px 0 20px;
+  color: gold;
   font-weight: bold;
-  border-radius: 50%;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+}
+
+.operation-card {
+  background-color: #ffffff;
+  width: 160px;
+  height: 160px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1.2rem;
+  font-weight: bold;
   cursor: pointer;
 }
 
-/* Individual button colors */
-.btnInsert {
-  background-color: #28a745; /* Green */
+.operation-card span {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
 }
 
-.btnUpdate {
-  background-color: #007bff; /* Blue */
+.operation-card.insert {
+  background-color: #e8f5e9;
+  color: #2e7d32;
 }
 
-.btnDelete {
-  background-color: #dc3545; /* Red */
+.operation-card.update {
+  background-color: #e3f2fd;
+  color: #1565c0;
 }
 
-.btnView {
-  background-color: #17a2b8; /* Cyan */
+.operation-card.delete {
+  background-color: #ffebee;
+  color: #c62828;
 }
 
-/* Hover effect */
-.button-container button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+.operation-card.view {
+  background-color: #e0f7fa;
+  color: #00838f;
+}
+
+.operation-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .operation-card {
+    width: 140px;
+    height: 140px;
+    font-size: 1rem;
+  }
+
+  .operation-card span {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .operation-card {
+    width: 100%;
+    max-width: 300px;
+    height: 100px;
+    flex-direction: ro
+  }
 }

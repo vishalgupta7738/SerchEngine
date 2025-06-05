@@ -1,44 +1,26 @@
-<div class="container mt-5" style="background: linear-gradient(135deg, #e0f7fa, #ffffff)">
-  <h2 class="mb-4 text-primary text-center">🏍️ Bike Add </h2>
-<br>
-  <form [formGroup]="bikeForm" (ngSubmit)="onSubmit()">
-    <div class="row g-3 mb-3">
-      <div class="col-md-4">
-        <label>Bike Name</label>
-        <input type="text" formControlName="bikeName" class="form-control" placeholder="Enter Bike Name" />
-      </div>
-      <div class="col-md-4">
-        <label>Model</label>
-        <input type="text" formControlName="model" class="form-control" placeholder="Enter Model" />
-      </div>
-      <div class="col-md-4">
-        <label>CC</label>
-        <input type="number" formControlName="cc" class="form-control" placeholder="Enter CC" />
-      </div>
-      <div class="col-md-4">
-        <label>Brand</label>
-        <input type="text" formControlName="brand" class="form-control" placeholder="Enter Brand" />
-      </div>
-      <div class="col-md-4">
-        <label>Price</label>
-        <input type="number" formControlName="price" class="form-control" placeholder="Enter Price" />
-      </div>
-      <div class="col-md-4">
-        <label>Year</label>
-        <input type="number" formControlName="year" class="form-control" placeholder="Enter Year" />
-      </div>
-    </div>
-    <div>
-     image :  <input type="file" formControlName="image" >
-    </div>
 
-    
-    
+<form (ngSubmit)="submitForm()" enctype="multipart/form-data" #bikeForm="ngForm" class="bike-form">
+  <label for="bikename">Bike Name:</label>
+  <input type="text" id="bikename" name="bikename" [(ngModel)]="bike.bikename" placeholder="Bike Name" required />
 
-    <div class="mb-3">
-      <button type="submit" class="btn btn-success me-2">Save</button>
-      <button type="button" class="btn btn-secondary" (click)="resetForm()">Clear</button>
-    </div>
+  <label for="model">Model:</label>
+  <input type="text" id="model" name="model" [(ngModel)]="bike.model" placeholder="Model" required />
 
-    
-  </form>
+  <label for="cc">CC:</label>
+  <input type="number" id="cc" name="cc" [(ngModel)]="bike.cc" placeholder="CC" required />
+
+  <label for="brand">Brand:</label>
+  <input type="text" id="brand" name="brand" [(ngModel)]="bike.brand" placeholder="Brand" required />
+
+  <label for="price">Price (₹):</label>
+  <input type="number" id="price" name="price" [(ngModel)]="bike.price" placeholder="Price" required />
+
+  <label for="year">Year:</label>
+  <input type="number" id="year" name="year" [(ngModel)]="bike.year" placeholder="Year" required />
+
+  <label for="imageFile">Upload Image:</label>
+  <input type="file" id="imageFile" name="imageFile" (change)="onFileSelected($event)" accept="image/*" required />
+
+  <button type="submit">Add Bike</button>
+</form> 
+

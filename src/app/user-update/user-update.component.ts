@@ -6,12 +6,13 @@ import { UserManagmentService } from '../UserManagmemtService/user-managment.ser
 
 @Component({
   selector: 'app-user-update',
-  imports: [FormsModule , CommonModule , ReactiveFormsModule],
+  imports: [FormsModule , CommonModule ],
   templateUrl: './user-update.component.html',
   styleUrl: './user-update.component.css'
 })
 export class UserUpdateComponent {
 
+condition:boolean=false;
 
   selectId: number = 0;   
   editMode: boolean = true;
@@ -28,6 +29,26 @@ export class UserUpdateComponent {
     isconfirm : new FormControl(''),
   });
 
+// UpdateUser2:any={
+//     userId:'',
+//     username:'',
+//     email:'',
+//     password:'',
+//     phone_no:'',
+//     registerdate:'',
+//     isconfirm:'',
+//   }
+
+
+  UpdateUser:any={
+    userId:'',
+    username:'',
+    email:'',
+    password:'',
+    phone_no:'',
+    registerdate:'',
+    isconfirm:'',
+  }
   
 
   onSubmit(){
@@ -38,12 +59,13 @@ export class UserUpdateComponent {
     this.editMode = true;
 
     if(this.editMode){
-      this.userManagmentService.UpdateUser(this.selectId , formData).subscribe(
+      this.userManagmentService.UpdateUser(this.selectId , this.UpdateUser).subscribe(
         next => {
           alert('✅ User updated!')
-          this.UpdateForm.reset();
           this.editMode = false;
-          console.log(next);
+           this.resetForm();
+            this.condition=false;
+         
         },
         error => {alert('❌ Update failed!')
         console.log(error)
@@ -51,10 +73,30 @@ export class UserUpdateComponent {
   );
     }
   }
-  
+  UserDetails()
+  {
+    this.condition=true;
+    this.userManagmentService.accessUserdetails(this.UpdateUser.userId).subscribe(response=>{
+
+      console.log(response);
+      this.UpdateUser=response;
+     
+      
+    },
+    error=>{
+      alert('❌ User Not Found.');
+      this.condition=false;
+      this.resetForm();
+    }
+  )
+
+  }
+
+
 
   resetForm(){
-    this.UpdateForm.reset(); 
+    //this.UpdateForm.reset(); 
+    this.UpdateUser=0;
   }
 
 }

@@ -1,30 +1,58 @@
+
 <body>
-<div class="signup-container">
-  <h2>Sign Up</h2>
-  <div>
-  <!-- <form [formGroup]="signupForm" (ngSubmit)="onSubmit()"> -->
-    <div>
-      <label for="username">Username</label>
-      <input id="username" formControlName="username" type="text" />
-    </div>
+  <div class="signup-container">
+    <h2>Sign Up</h2>
 
-    <div>
-      <label for="email">Email</label>
-      <input id="email" formControlName="email" type="email" />
-    </div>
+    <form #signupForm="ngForm" (ngSubmit)="ClickSingUp()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          id="username"
+          name="username"
+          [(ngModel)]="Users.username"
+          type="text"
+          required
+          minlength="3"
+          class="form-control"
+        />
+        <div *ngIf="signupForm.submitted && !signupForm.controls['username']?.valid" class="error">
+          Username is required (min 3 chars)
+        </div>
+      </div>
 
-    <div>
-      <label for="phone_no">Phone Number</label>
-      <input id="phone_no" formControlName="phone_no" type="text" />
-    </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          name="email"
+          [(ngModel)]="Users.email"
+          type="email"
+          required
+          email
+          class="form-control"
+        />
+        <div *ngIf="signupForm.submitted && !signupForm.controls['email']?.valid" class="error">
+          Enter a valid email
+        </div>
+      </div>
 
-    <div>
-      <label for="password">Password</label>
-      <input id="password" formControlName="password" type="password" />
-    </div>
-<br>
-    <button type="submit" (click)="ClickSingUp()">Sign Up</button>
+      <div class="form-group">
+        <label for="phone_no">Phone Number</label>
+        <input
+          id="phone_no"
+          name="phone_no"
+          [(ngModel)]="Users.phone_no"
+          type="text"
+          required
+          pattern="^[0-9]{10}$"
+          class="form-control"
+        />
+        <div *ngIf="signupForm.submitted && !signupForm.controls['phone_no']?.valid" class="error">
+          Enter 10-digit phone number
+        </div>
+      </div>
 
-</div>
-</div>
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
 </body>

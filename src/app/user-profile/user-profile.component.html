@@ -1,0 +1,39 @@
+<body>
+  <div class="profile-container" *ngIf="userDetails">
+    <h2>User Profile</h2>
+
+    <div class="profile-details">
+      <div class="detail-row">
+        <span class="detail-label">Username:</span>
+        <span class="detail-value">{{ userDetails.username }}</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Email:</span>
+        <span class="detail-value">{{ userDetails.email }}</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Phone Number:</span>
+        <span class="detail-value">{{ userDetails.phone_no }}</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Registration Date:</span>
+        <span class="detail-value">{{ userDetails.registerdate | date: 'dd MMM yyyy' }}</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Account Status:</span>
+        <span
+          class="detail-value status"
+          [ngClass]="{ active: userDetails.Isconfirm, inactive: !userDetails.Isconfirm }"
+        >
+          {{ userDetails.isconfirm ? 'Confirmed' : 'Not Confirmed' }}
+        </span>
+      </div>
+    </div>
+
+    <button (click)="logout()" class="logout">Logout</button>
+  </div>
+
+  <div *ngIf="!userDetails" class="loading">
+    Loading user details...
+  </div>
+</body>

@@ -15,7 +15,11 @@ import { AuthGuard } from './auth.guard';
 import { UserDetailsManagmentComponent } from './user-details-managment/user-details-managment.component';
 import { UserUpdateComponent } from './user-update/user-update.component';
 import { UserDeleteComponent } from './user-delete/user-delete.component';
-
+import { PendingdetailscomComponent } from './pendingdetailscom/pendingdetailscom.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ReportGenerateComponentComponent } from './report-generate-component/report-generate-component.component';
+import { UserSearchHistoryComponent } from './user-search-history/user-search-history.component';
+import { SeeAllHistoryComponent } from './see-all-history/see-all-history.component';
 export const routes: Routes = [
 
     {path : '', component:HomeComponent , pathMatch: 'full'},
@@ -34,7 +38,16 @@ export const routes: Routes = [
     {path : 'Request' , component: UserDetailsComponent},
     {path : 'UserUpdate' , component:UserUpdateComponent},
     {path : 'UserView' , component:UserDetailsComponent},
-    {path : 'UserDelete' , component:UserDeleteComponent}
+    {path : 'UserDelete' , component:UserDeleteComponent},
+    {path : 'PendingRequest' , component:PendingdetailscomComponent},
+    {path : 'singUp' , component:HomeComponent},
+    {path : 'UserLogin' , component:HomeComponent},
+     {path : 'profile' , component:UserProfileComponent},
+    {path:'report',component:ReportGenerateComponentComponent},
+    {path : 'ReportHome' , component:AdminComponent},
+    {path : 'searchHistory' , component:UserSearchHistoryComponent},
+    {path : 'userLogout' , component:HomeComponent},
+    {path : 'userSearchHistory' ,component:SeeAllHistoryComponent}
 
     
 ];

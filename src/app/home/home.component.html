@@ -1,19 +1,32 @@
-<div class="video-background">
+<div class="container-fluid p-0 video-background">
   <video autoplay muted loop playsinline>
-    <source src="Video\bikevidio.mp4" type="video/mp4" />
-    Your browser does not support the video tag.    
+    <source src="Video/bikevide.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
   </video>
 
-  <div class="overlay-content">
-  <h1 style="color: yellow; text-shadow: 3px 3px 10px black;">SuperBike Search Engine</h1>
-    <div class="search-box">
-      <input type="text" placeholder="Search Super Bikes..."  style="width: 450px; padding: 14px; border-radius: 8px; " />
-       <button routerLink="/Search">🔎Search</button> 
+  <div class="overlay-content d-flex flex-column justify-content-center align-items-center text-center px-3">
+    <h1 class="text-warning fw-bold display-5">SuperBike Search Engine</h1>
+
+    <div class="search-box w-100 mt-4 d-flex flex-column flex-md-row justify-content-center align-items-center gap-2">
+      <input type="text"
+             class="form-control w-100 w-md-auto"
+             placeholder="Search Super Bikes..."
+             style="max-width: 450px; padding: 14px; border-radius: 8px;"
+             [(ngModel)]="searchTerm" />
+
+      <button (click)="searchBike()"
+              class="btn btn-primary px-4 py-2">
+        🔎 Search
+      </button>
     </div>
   </div>
 </div>
+
 <br>
-<app-trending-bike></app-trending-bike>
+<app-trending-bike ></app-trending-bike>
+
+
 <br>
-<app-brand></app-brand>
-<app-footer></app-footer>
+<app-brand ></app-brand>
+<app-footer ></app-footer>
+

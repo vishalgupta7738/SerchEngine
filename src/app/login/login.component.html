@@ -1,20 +1,46 @@
-<body>
-<div id="divId">
-   <h2>Login</h2>
-<form [formGroup]="LoginForm" (ngSubmit)="LoginSubmit()">
-    <div class="email">
-       <label><b>EmailId :</b></label>
-       <input id="EmailId" type="email" name="EmailId" formControlName="EmailID"/>
-    </div>
-    <br>
-    <br>
-    <div class="pwd">
-    <label><b>PassWord :</b> </label>
-    <input type="password" id="pwd" name="password" formControlName="PassWord" />
-    </div>
-    <br>
-    <br>
-    <button type="submit"  class="sub"> login </button> 
-</form> 
-</div>
+
+  <body>
+  <div id="divId">
+    <h2>Login</h2>
+
+    <form #loginForm="ngForm" (ngSubmit)="LoginSubmit()">
+      <div class="email">
+        <label for="EmailId"><b>EmailId :</b></label>
+        <input
+          id="EmailId"
+          type="email"
+          name="email"
+          [(ngModel)]="credentials.email"
+          required
+          email
+        />
+        <div
+          *ngIf="loginForm.submitted && !loginForm.controls['email']?.valid"
+          class="error"
+        >
+          Valid email is required.
+        </div>
+      </div>
+
+      <div class="pwd" style="margin-top: 20px;">
+        <label for="pwd"><b>Password :</b></label>
+        <input
+          type="password"
+          id="pwd"
+          name="password"
+          [(ngModel)]="credentials.password"
+          required
+          minlength="6"
+        />
+        <div
+          *ngIf="loginForm.submitted && !loginForm.controls['password']?.valid"
+          class="error"
+        >
+          Password is required (min 6 characters).
+        </div>
+      </div>
+
+      <button type="submit" class="sub">Login</button>
+    </form>
+  </div>
 </body>

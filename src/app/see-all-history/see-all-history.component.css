@@ -1,0 +1,55 @@
+/* Background for the whole section */
+:host {
+  display: block;
+  padding: 30px;
+  background: linear-gradient(to right, #e3f2fd, #f1f8ff); /* soft blue gradient */
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Heading */
+h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 26px;
+}
+
+/* Table styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Header row */
+.table thead {
+  background-color: yellow;
+  color: black;
+}
+
+.table thead th {
+  padding: 15px;
+  text-align: left;
+  font-size: 16px;
+}
+
+/* Data rows */
+.table tbody tr {
+  transition: background 0.3s ease;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f9ff;
+}
+
+/* Cells */
+.table tbody td {
+  padding: 14px;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+  color: #444;
+}

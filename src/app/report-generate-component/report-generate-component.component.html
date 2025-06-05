@@ -1,0 +1,41 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container mt-4">
+  <h4 class="mb-4" style="text-align: center;">Summary Report</h4>
+  <div class="container md-4">
+  <table class="table  table-hover table-bordered" style="border-radius: 10px;">
+    <tbody>
+      <tr>
+        <td ><p >Total Number Of Request:</p></td>
+        <td><p>{{reportTableData.Totalreq}}</p></td>
+      </tr>
+      <tr>
+        <td ><p >Total Approved Request:</p></td>
+        <td><p>{{reportTableData.totalaproved}}</p> </td>
+      </tr>
+      <tr>
+        <td ><p>Total Pending Request:</p></td>
+        <td><p>{{reportTableData.totalpending}}</p></td>
+      </tr>
+      <tr>
+        <td ><p>Total Reject Request:</p></td>
+        <td><p>{{reportTableData.Rejectreq}}</p></td>
+      </tr>
+      
+      <tr>
+        <td ><p> Total Search:</p></td>
+        <td><p>{{bikedetails.totalSearchCount}}</p></td>
+      </tr>
+      <tr>
+        <td ><p>Most Search Bike Name:</p></td>
+        <td><p>{{bikedetails.mostSearchKeyword}} : {{bikedetails.frequency}} Times</p></td>
+      </tr>
+      <tr>
+        <td ><button type="button" class="btn btn-outline-info" style="align-items: center;" routerLink= "/ReportHome">Home</button></td>
+        <td><button type="button" class="btn btn-outline-info" (click)="downloadReport()">Download</button></td>
+      </tr>   
+    </tbody>
+  </table>
+  </div>
+</div>
+ 

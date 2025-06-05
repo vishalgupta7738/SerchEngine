@@ -23,6 +23,7 @@ constructor(private bikeService : BikeDataService){}
     
     this.bikeService.deleteBikeById(Number(bikeId)).subscribe(
       next => {
+        console.log(next);
         alert('✅ Bike deleted successfully!');
         this.deleteForm.reset();
         console.log(next);

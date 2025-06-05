@@ -1,0 +1,22 @@
+<table class="table table-bordered">
+    <thead>
+        <th>UserId</th>
+        <th>UserName</th>
+        <th>Email</th>
+        <th>PhoneNo</th>
+        <th>Registration Date</th>
+        <th>IsConfirm</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of Users">
+            <td>{{user.userId}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone_no}}</td>
+            <td>{{user.registerdate}}</td>
+            <td>{{user.isconfirm}}</td>
+            <td><button type="button" class="btn btn-outline-primary" (click)="ApprovedUser($event)"  value="{{user.email}}" >Approved</button></td>
+            <td><button type="button" class="btn btn-outline-danger"(click)="RejectUser($event)"   value="{{user.email}}" >Reject</button></td>
+        </tr>
+    </tbody>
+</table>

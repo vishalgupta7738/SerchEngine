@@ -1,52 +1,53 @@
 <div class="container mt-5" style="background: linear-gradient(135deg, #e0f7fa, #ffffff)">
   <h2 class="mb-4 text-primary text-center">🏍️ Bike Update </h2>
 <br>
-  <form [formGroup]="UpdateForm" (ngSubmit)="onSubmit()">
-   <div class="row g-3 mb-3">
+ 
+   <div class="row g-3 mb-3"> 
       <div class="col-md-4">
         <label>Bike Id</label>
-        <input type="number" formControlName="bikeId" class="form-control" placeholder="Enter Bike Id"/>
+        <input type="number" [(ngModel)]="UpdateBike.bikeId" class="form-control" placeholder="Enter Bike Id" (blur)="getdatafromId()"/>
       <!-- <button class="btnsearch" (click)="searchId()">Search</button> -->
 
       </div>
     </div>
+    
    
-      
-    <div class="row g-3 mb-3">
+
+    <div class="row g-3 mb-3" *ngIf="condition">
       <div class="col-md-4">
         <label>Bike Name</label>
-        <input type="text" formControlName="bikeName" class="form-control" placeholder="Enter Bike Name" />
+        <input type="text" [(ngModel)]="UpdateBike.bikeName" class="form-control" placeholder="Enter Bike Name" />
       </div>
       
       <div class="col-md-4">
         <label>Model</label>
-        <input type="text" formControlName="model" class="form-control" placeholder="Enter Model" />
+        <input type="text" [(ngModel)]="UpdateBike.model" class="form-control" placeholder="Enter Model" />
       </div>
 
       <div class="col-md-4">
         <label>CC</label>
-        <input type="number" formControlName="cc" class="form-control" placeholder="Enter CC" />
+        <input type="number" [(ngModel)]="UpdateBike.cc" class="form-control" placeholder="Enter CC" />
       </div>
 
       <div class="col-md-4">
         <label>Brand</label>
-        <input type="text" formControlName="brand" class="form-control" placeholder="Enter Brand" />
+        <input type="text" [(ngModel)]="UpdateBike.brand" class="form-control" placeholder="Enter Brand" />
       </div>
 
       <div class="col-md-4">
         <label>Price</label>
-        <input type="number" formControlName="price" class="form-control" placeholder="Enter Price" />
+        <input type="number" [(ngModel)]="UpdateBike.price" class="form-control" placeholder="Enter Price" />
       </div>
 
       <div class="col-md-4">
         <label>Year</label>
-        <input type="number" formControlName="year" class="form-control" placeholder="Enter Year" />
+        <input type="number" [(ngModel)]="UpdateBike.year" class="form-control" placeholder="Enter Year" />
       </div>
     </div>
 
     <div class="mb-3">
-      <button type="submit" class="btn btn-success me-2">Update</button>
+      <button type="button" class="btn btn-success me-2" (click)="onSubmit()">Update</button>
       <button type="button" class="btn btn-secondary" (click)="resetForm()">Clear</button>
     </div>
     
-  </form>
+ 
