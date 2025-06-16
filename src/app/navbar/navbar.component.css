@@ -1,10 +1,9 @@
 
-
 .search-container {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: linear-gradient(to right, #e0f7fa, #f1f8ff);
+  background: linear-gradient(to right, #87c5cd, #f1f8ff);
   padding: 10px 15px;
   border-radius: 12px;
   max-width: 500px;

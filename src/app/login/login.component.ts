@@ -40,6 +40,7 @@ constructor(private router: Router, private loginService : LoginService){}
    // console.log(this.LoginForm.value);
 
  console.log(this.credentials);
+ 
     this.loginService.login(this.credentials).subscribe({
     
       next: (res : any) => {
@@ -55,7 +56,7 @@ constructor(private router: Router, private loginService : LoginService){}
         else if(res.role==='user')
           {
               localStorage.setItem('userrole','user');
-          //  localStorage.setItem('jwtToken',res.token) ; 
+     localStorage.setItem('jwtToken',res.token) ; 
           if(localStorage.getItem('userProfile')!==null)
           {
               localStorage.removeItem('userProfile');

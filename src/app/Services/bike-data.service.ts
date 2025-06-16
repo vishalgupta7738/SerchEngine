@@ -35,14 +35,14 @@ export class BikeDataService {
   }
 
   
-      private DeleteUrl = 'https://localhost:7183/api/Bike';
+      private DeleteUrl = 'https://localhost:7183/api/Bike?id=';
   
      deleteBikeById(bikeId : number) : Observable<any>
      {
           // return this.Http.delete(`https://localhost:7183/api/Bike/${bikeId}`);
 
-          const url = (`${this.DeleteUrl}${bikeId}`);
-          console.log(bikeId);
+          const url = (this.DeleteUrl+bikeId);
+          // console.log(bikeId);
           return this.Http.delete(url);
      }
      getdataforupdate(id:number)

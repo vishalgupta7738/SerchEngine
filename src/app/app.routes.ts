@@ -20,6 +20,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ReportGenerateComponentComponent } from './report-generate-component/report-generate-component.component';
 import { UserSearchHistoryComponent } from './user-search-history/user-search-history.component';
 import { SeeAllHistoryComponent } from './see-all-history/see-all-history.component';
+
+
 export const routes: Routes = [
 
     {path : '', component:HomeComponent , pathMatch: 'full'},

@@ -1,79 +1,37 @@
-<!-- <div class="navbar-actions">
-    <div class="overlay-content">
-    <div class="search-box">
-      <input type="text" placeholder="Search Super Bikes..."  style="width: 450px; padding: 14px; border-radius: 8px; " />
-      <button routerLink="/Search">🔎Search</button>
-    </div>
-  </div> -->
 
-  <!-- <div class="search-container">
-  <input type="text" placeholder="Search" class="search-input" [(ngModel)]="searchTerm" />
-  <button class="search-button" (click)="searchBike()">
-    click
-  </button>
-</div> -->
-
- <!-- <div class="overlay-content"> -->
-   <!-- <h1 style="color: yellow; text-shadow: 3px 3px 10px black;">This </h1>  -->
-   
-   
- <!-- <nav class="navbar" style="color: white;">
-  <div>
-  <img src="\Images\logoBike.png"height="60px" width="60px" /><b>ＳｕｐｅｒＢｉｋｅ</b>
-  </div>
-    <div class="search-container" style="margin-right: 650px;">
-      <input type="text" placeholder="Search" class="search-input" style="width: 200px; padding: 14px; border-radius: 10px; "  [(ngModel)]="searchTerm"/>
-       <button (click)="searchBike()">🔎Search</button> 
-    </div>
-
-
-<div style="margin-top: -6%;" >
-    <a routerLink="/SingUp" class="singup" >🤝SingUp</a>
-    <a routerLink="/Login" class="btn" style="margin-left: 12px;">🔒Login</a> 
-    <a routerLink="/profile" class="btn" style="margin-left: 12px;" >User Profile</a> 
-     <a routerLink="/searchHistory" class="btn" style="margin-left: 12px;"  >User Search History </a> 
-  </div>
- 
-</nav>  -->
-  <!-- <app-home></app-home>  -->
-<!-- mantu ne banay -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow py-3">
   <div class="container-fluid">
-    <!-- Brand / Logo -->
+
     <a class="navbar-brand d-flex align-items-center" href="#">
       <img src="\Images\logoBike.png" alt="Logo" height="50" width="50" class="me-2" />
       <strong>ＳｕｐｅｒＢｉｋｅ</strong>
-    </a>
+    </a> 
 
-    <!-- Toggle Button for Mobile -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Navbar Content -->
     <div class="collapse navbar-collapse" id="mainNavbar">
 
-      <!-- Search Bar (Centered on large, stacked on mobile) -->
       <div class="mx-auto my-3 my-lg-0 d-flex justify-content-center search-container">
         <input type="text" class="form-control search-input" placeholder="Search" [(ngModel)]="searchTerm" />
         <button (click)="searchBike()">🔎 Search</button>
       </div>
 
-      <!-- Right Side Links -->
       <ul class="navbar-nav ms-auto d-flex flex-column flex-lg-row align-items-center gap-2 gap-lg-3 mt-3 mt-lg-0">
         <li class="nav-item">
-          <a routerLink="/SingUp" class="btn btn-primary">🤝 SingUp</a>
+          <a routerLink="/SingUp" class="btn btn-primary">🤝 SignUp</a>
         </li>
         <li class="nav-item">
           <a routerLink="/Login" class="btn btn-primary">🔒 Login</a>
         </li>
         <li class="nav-item">
-          <a routerLink="/profile" class="btn btn-primary">User Profile</a>
+          <a routerLink="/profile" class="btn btn-primary">🕵️‍♂️ User Profile</a>
         </li>
         <li class="nav-item">
-          <a routerLink="/searchHistory" class="btn btn-primary">User Search History</a>
+          <a routerLink="/searchHistory" class="btn btn-primary">🧑‍💻User Search History</a>
         </li>
       </ul>
     </div>
   </div>
-</nav>
+</nav>                     

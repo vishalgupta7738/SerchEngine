@@ -21,7 +21,7 @@ constructor(private bikeService : BikeDataService){}
   onSubmit(){
     const bikeId = this.deleteForm.value.Id
     
-    this.bikeService.deleteBikeById(Number(bikeId)).subscribe(
+    this.bikeService.deleteBikeById(bikeId).subscribe(
       next => {
         console.log(next);
         alert('✅ Bike deleted successfully!');

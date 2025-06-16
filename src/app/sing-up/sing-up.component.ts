@@ -8,6 +8,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import { response } from 'express';
 import { RouterLink } from '@angular/router';
+import { error } from 'node:console';
+import { __await } from 'tslib';
 
 @Component({
   selector: 'app-sing-up',
@@ -17,19 +19,27 @@ import { RouterLink } from '@angular/router';
   providers:[UserDetailsService,HttpClient]
 })
 export class SingUpComponent {
- Users:any={
-  username:'',
-  email:'',
-phone_no:'',
-
-}
-constructor(private accessservice:UserDetailsService){}
+  Users:any=
+  {
+        username:'',
+        email:'',
+        phone_no:'',
+  }   
+ constructor(private accessservice:UserDetailsService){}
 
   ClickSingUp(){
+  
     this.accessservice.UserRegister(this.Users).subscribe(response=>{
       console.log(response);
-    });
-    alert('Please wait for Admin Approval');
+       alert('Please wait for Admin Approval');
+    },error=>{
+      console.log(error);
+       alert("Please Enter Correct Information");
+   
+    }
+    
+  ); 
+   
   }
 
 }

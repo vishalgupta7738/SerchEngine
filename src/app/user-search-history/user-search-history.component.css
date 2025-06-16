@@ -53,3 +53,7 @@ h3 {
   font-size: 15px;
   color: #444;
 }
+button {
+  background-color: aquamarine;
+  border-radius: 10%;
+}

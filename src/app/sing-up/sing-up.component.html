@@ -13,6 +13,7 @@
           type="text"
           required
           minlength="3"
+          maxlength="25"
           class="form-control"
         />
         <div *ngIf="signupForm.submitted && !signupForm.controls['username']?.valid" class="error">
@@ -45,7 +46,8 @@
           type="text"
           required
           pattern="^[0-9]{10}$"
-          class="form-control"
+          class="form-control" 
+          maxlength="10"
         />
         <div *ngIf="signupForm.submitted && !signupForm.controls['phone_no']?.valid" class="error">
           Enter 10-digit phone number

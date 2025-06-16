@@ -35,10 +35,19 @@ searchBike(bikename:string)
   return this.http.get('https://localhost:7183/api/Bike/search?query='+bikename);
 }
 
+deleteSearchHistory(ids: number[]) {
+  return this.http.post('https://localhost:7183/api/Search/DeleteSearchHistory', ids ,{
+ responseType: 'text' 
+  });
+ 
+}
+
+
 }
 export interface SearchHistory {
   searchId: number;
   searchDesc: string;
   userId?: number;
   searchDate: Date;
+  selected?: boolean; 
 }

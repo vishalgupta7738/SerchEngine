@@ -33,8 +33,8 @@ ngOnInit():any
       {
         console.log("success");
 
-     this.objusercountstore.userId= data;
-    console.log(data);
+        this.objusercountstore.userId= data;
+        console.log(data);
    
       }
     )

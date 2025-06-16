@@ -15,51 +15,7 @@ import { error } from 'console';
 
 export class BikeCrudComponent {
  
- 
 
-//   bikeForm = new FormGroup({
-//     bikeName: new FormControl(''),
-//     model: new FormControl(''),
-//     cc: new FormControl(''),
-//     brand: new FormControl(''),
-//     price: new FormControl(''),
-//     year: new FormControl(''),
-//   });
-
-//  constructor(private fb: FormBuilder , private bikeService : BikeDataService){}
-
-  
-
-//  onSubmit(){
- 
-//   const formData = {
-//     bikeName: this.bikeForm.value.bikeName,
-//      brand: this.bikeForm.value.brand,
-//       cc: Number(this.bikeForm.value.cc),
-//     model: this.bikeForm.value.model,
-   
-   
-//     price: Number(this.bikeForm.value.price),
-//     year: Number(this.bikeForm.value.year)  
-//   }
-
-//  console.log(this.bikeForm.value);  
-
-// this.bikeService.InsertBike(formData).subscribe(
-//   next  => {
-//     alert('✅ Bike added successfully!');
-//     this.bikeForm.reset();
-//     console.log(next);
-//   },
-//   error => {
-//     alert('❌ Something went wrong!');
-//     console.log(error);
-//   }
-
-//  )};
-// resetForm(): void {
-// this.bikeForm.reset();
-// }
 
 bike = {
     bikename: '',
@@ -77,12 +33,12 @@ bike = {
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
   }
-
+   
   submitForm() {
-    const formData = new FormData();
+    const formData = new FormData(); 
     formData.append('bikename', this.bike.bikename);
     formData.append('model', this.bike.model);
-    formData.append('cc', this.bike.cc.toString());
+     formData.append('cc', this.bike.cc.toString());
     formData.append('brand', this.bike.brand);
     formData.append('price', this.bike.price.toString());
     formData.append('year', this.bike.year.toString());
