@@ -1,23 +1,20 @@
-<body>
-  <div class="dashboard-container">
-    <h1 class="msg">Welcome to Admin Dashboard</h1>
 
-    <button
-      type="button"
-      class="btnReq"
-      routerLink="/PendingRequest"
-      style="margin-left: auto; margin-bottom: 30px;"
-    >
+<div class="dashboard-wrapper">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Admin Dashboard</h2>
+    <a routerLink="/PendingRequest" class="sidebar-btn request">
       🔔 {{ objusercountstore.userId }} Request
-    </button>
-
-    <div class="button-wrapper">
-      <a routerLink="/Bike" class="btn-link bikebtn">🚴 Bike Operation</a>
-      <a routerLink="/User" class="btn-link userbtn">👤 User Details</a>
-      <a routerLink="/userSearchHistory" class="btn-link viewbtn">📜 Users Search History</a>
-      <a routerLink="/report" class="btn-link reportbtn">📊 Report</a>
-    </div>
-
-    <button (click)="logout()" class="logout">Logout</button>
+    </a>
+    <a routerLink="/bikeOperation" class="sidebar-btn">🚴 Bike Operation</a>
+    <a routerLink="/User" class="sidebar-btn">👤 User Details</a>
+    <a routerLink="/userSearchHistory" class="sidebar-btn">📜 User Search History</a>
+    <a routerLink="/report" class="sidebar-btn">📊 Report</a>
+   <button (click)="logout()" class="sidebar-btn logout">🚪 Logout</button>
   </div>
-</body>
+
+  <!-- Content Area -->
+  <div class="main-content">
+     <h1 class="welcome-msg">Welcome to Admin Dashboard</h1>
+  </div>
+</div>

@@ -1,31 +1,35 @@
-<!-- <body class="bodyOpearation">
-<h2 class="bikeop"> 🏍️ Bike Management</h2>
-<div class="button-container">
-  <button type="button" class="btnInsert" routerLink="/Add">Insert</button>
-  <button type="button" class="btnUpdate" routerLink="/Update">Update</button>
-  <button type="button" class="btnDelete" routerLink="/Delete">Delete</button>
-  <button type="button" class="btnView"  routerLink="/BikeList">View</button>
-</div>
-</body> -->
+<div class="bike-table-container">
+  <h2>All Bikes</h2>
 
-<body class="bodyOpearation">
-  <h2 class="bikeop">🏍️ Bike Management</h2>
-  <div class="card-container">
-    <div class="operation-card insert" routerLink="/Add">
-      <span>➕</span>
-      <p>Insert</p>
-    </div>
-    <div class="operation-card update" routerLink="/Update">
-      <span>✏️</span>
-      <p>Update</p>
-    </div>
-    <div class="operation-card delete" routerLink="/Delete">
-      <span>🗑️</span>
-      <p>Delete</p>
-    </div>
-    <div class="operation-card view" routerLink="/BikeList">
-      <span>📋</span>
-      <p>View</p>
-    </div>
-  </div>
-</body>
+  <table class="bike-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Bike Name</th>
+        <th>Model</th>
+        <th>CC</th>
+        <th>Brand</th>
+        <th>Price (₹)</th>
+        <th>Year</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bike of bikes">
+        <td>{{ bike.bikeId }}</td>
+        <td>{{ bike.bikeName }}</td>
+        <td>{{ bike.model }}</td>
+        <td>{{ bike.cc }}</td>
+        <td>{{ bike.brand }}</td>
+        <td>{{ bike.price }}</td>
+        <td>{{ bike.year }}</td>
+        <td><button>Edit</button></td>
+        <td><button>Delete</button></td>
+        
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noData>
+    <p>No bikes found.</p>
+  </ng-template>
+</div>

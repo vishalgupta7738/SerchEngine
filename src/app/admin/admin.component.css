@@ -3,10 +3,9 @@
   box-sizing: border-box;
 }
 
-body {
-    background-image: url('https://plus.unsplash.com/premium_photo-1678718713393-2b88cde9605b?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmljeWNsZXxlbnwwfHwwfHx8MA%3D%3D');
-
-    background-size: cover;
+/* .main-content {
+  background-image: url('https://cdn.bikedekho.com/processedimages/royal-enfield/roadstar/source/roadstar680f56320dc76.jpg'); 
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
@@ -14,157 +13,167 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
-/* Container */
-.dashboard-container {
-  background: white;
-  max-width: 900px;
-  width: 100%;
-  padding: 40px 30px 50px;
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgb(0 0 0 / 0.1);
-  display: flex;
-  flex-direction: column;
-}
 
-/* Heading */
-.msg {
-  font-size: 2.8rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 40px;
-  color: #2c3e50;
-}
-
-/* Request button (top-right aligned) */
-.btnReq {
-  align-self: flex-end;
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-  padding: 12px 22px;
-  font-size: 1rem;
-  border-radius: 50px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  margin-bottom: 30px;
-}
-
-.btnReq:hover {
-  background-color: #c0392b;
-  transform: scale(1.05);
-}
-
-/* Buttons wrapper */
-.button-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  margin-bottom: 50px;
-}
-
-/* Buttons style */
-.btn-link {
-  flex: 1 1 180px;
-  max-width: 220px;
-  background-color: #3498db;
-  color: white;
-  text-decoration: none;
-  padding: 18px 25px;
-  font-size: 1.2rem;
-  border-radius: 14px;
-  font-weight: 700;
-  box-shadow: 0 5px 15px rgb(52 152 219 / 0.4);
+.main-content {
+  position: relative;
+  background-image: url('https://cdn.bikedekho.com/processedimages/royal-enfield/roadstar/source/roadstar680f56320dc76.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  user-select: none;
-}
-
-.btn-link:hover {
-  background-color: #2980b9;
-  transform: scale(1.07);
-}
-
-/* Specific button colors */
-.bikebtn {
-  background-color: #27ae60;
-  box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
-}
-.bikebtn:hover {
-  background-color: #1e8449;
-}
-
-.userbtn {
-  background-color: #8e44ad;
-  box-shadow: 0 5px 15px rgba(142, 68, 173, 0.4);
-}
-.userbtn:hover {
-  background-color: #732d91;
-}
-
-.viewbtn {
-  background-color: #f39c12;
-  color: #222;
-  box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
-}
-.viewbtn:hover {
-  background-color: #d68910;
-}
-
-.reportbtn {
-  background-color: #c0392b;
-  box-shadow: 0 5px 15px rgba(192, 57, 43, 0.4);
-}
-.reportbtn:hover {
-  background-color: #962d22;
-}
-
-/* Logout button */
-.logout {
-  align-self: center;
-  background-color: #34495e;
   color: white;
+  z-index: 1;
+}
+
+/* Add a dark overlay */
+.main-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity here */
+  z-index: -1;
+}
+
+/* Layout wrapper */
+.dashboard-wrapper {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Sidebar (left side) */
+.sidebar {
+  width: 240px;
+  background-color: #1f2937; /* dark slate */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.sidebar h2 {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Sidebar buttons/links */
+ .sidebar-btn {
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  background-color: #374151; 
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+} 
+
+ .sidebar-btn:hover {
+  background-color: #4b5563;
+} 
+
+ .sidebar-btn.request {
+  background-color: #dc2626; 
+  font-weight: bold;
+} 
+
+ 
+
+ .sidebar-btn {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  background-color: #374151; /* dark gray */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
   border: none;
-  padding: 14px 50px;
-  font-size: 1.1rem;
-  border-radius: 30px;
+  transition: background-color 0.3s;
+  text-align: left;
   cursor: pointer;
-  box-shadow: 0 6px 18px rgba(52, 73, 94, 0.4);
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  font-weight: 600;
+}
+
+.sidebar-btn:hover {
+  background-color: #4b5563; /* lighter gray */
+}
+
+.logout {
+  background-color: #4b5563; 
 }
 
 .logout:hover {
-  background-color: #2c3e50;
-  transform: scale(1.05);
+  background-color: red;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .msg {
-    font-size: 2rem;
-  }
-  
-  .btn-link {
-    max-width: 100%;
-    font-size: 1rem;
-    padding: 15px 20px;
+
+/* Main content */
+.main-content {
+  flex: 1;
+  padding: 40px;
+  background-color: #f1f5f9;
+}
+
+.welcome-msg {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-wrapper {
+    flex-direction: column;
   }
 
-  .btnReq {
-    padding: 10px 18px;
-    font-size: 0.9rem;
-    margin-bottom: 20px;
-  }
-
-  .logout {
+  .sidebar {
     width: 100%;
-    padding: 14px 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 0;
   }
+
+  .sidebar h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .sidebar-btn {
+    flex: 1 1 45%;
+    margin: 5px;
+    text-align: center;
+  }
+
+  .sidebar-btn.logout {
+    order: 10;
+    width: 100%;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+}
+
+.welcome-msg {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Text glow for better visibility */
 }

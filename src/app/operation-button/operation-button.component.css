@@ -1,109 +1,53 @@
-.bodyOpearation {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-   background-image: url('https://images7.alphacoders.com/594/thumb-1920-594433.jpg');
-    background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-
-.bikeop {
-  text-align: center;
-  font-size: 3.8rem;
-  margin: 40px 0 20px;
-  color: gold;
-  font-weight: bold;
-}
-
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
+.bike-table-container {
   padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
-.operation-card {
-  background-color: #ffffff;
-  width: 160px;
-  height: 160px;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+h2 {
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  font-size: 1.2rem;
-  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.bike-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.bike-table th,
+.bike-table td {
+  padding: 12px 16px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.bike-table th {
+  background-color: #374151;
+  color: white;
+}
+
+.bike-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 6px 12px;
+  margin: 2px;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
 }
 
-.operation-card span {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+.edit-btn {
+  background-color: #007bff;
+  color: white;
 }
 
-.operation-card.insert {
-  background-color: #e8f5e9;
-  color: #2e7d32;
-}
-
-.operation-card.update {
-  background-color: #e3f2fd;
-  color: #1565c0;
-}
-
-.operation-card.delete {
-  background-color: #ffebee;
-  color: #c62828;
-}
-
-.operation-card.view {
-  background-color: #e0f7fa;
-  color: #00838f;
-}
-
-.operation-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .operation-card {
-    width: 140px;
-    height: 140px;
-    font-size: 1rem;
-  }
-
-  .operation-card span {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .card-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .operation-card {
-    width: 100%;
-    max-width: 300px;
-    height: 100px;
-    flex-direction: ro
-  }
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
 }

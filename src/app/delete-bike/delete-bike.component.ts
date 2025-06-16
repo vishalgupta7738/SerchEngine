@@ -1,44 +1,44 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BikeDataService } from '../Services/bike-data.service';
-import { error } from 'console';
+// import { CommonModule } from '@angular/common';
+// import { Component } from '@angular/core';
+// import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { BikeDataService } from '../Services/bike-data.service';
+// import { error } from 'console';
 
-@Component({
-  selector: 'app-delete-bike',
-  imports: [FormsModule , CommonModule , ReactiveFormsModule],
-  templateUrl: './delete-bike.component.html',
-  styleUrl: './delete-bike.component.css'
-})
-export class DeleteBikeComponent {
+// @Component({
+//   selector: 'app-delete-bike',
+//   imports: [FormsModule , CommonModule , ReactiveFormsModule],
+//   templateUrl: './delete-bike.component.html',
+//   styleUrl: './delete-bike.component.css'
+// })
+// export class DeleteBikeComponent {
 
-constructor(private bikeService : BikeDataService){}
+// constructor(private bikeService : BikeDataService){}
 
-  deleteForm = new FormGroup({
-    Id : new FormControl(),
-  })
+//   deleteForm = new FormGroup({
+//     Id : new FormControl(),
+//   })
 
-  onSubmit(){
-    const bikeId = this.deleteForm.value.Id
+//   onSubmit(){
+//     const bikeId = this.deleteForm.value.Id
     
-    this.bikeService.deleteBikeById(bikeId).subscribe(
-      next => {
-        console.log(next);
-        alert('✅ Bike deleted successfully!');
-        this.deleteForm.reset();
-        console.log(next);
-      },
-      error => {
-        alert('❌ Failed to delete bike!');
-        console.log(error);
-      }
-    );
-  }
+//     this.bikeService.deleteBikeById(bikeId).subscribe(
+//       next => {
+//         console.log(next);
+//         alert('✅ Bike deleted successfully!');
+//         this.deleteForm.reset();
+//         console.log(next);
+//       },
+//       error => {
+//         alert('❌ Failed to delete bike!');
+//         console.log(error);
+//       }
+//     );
+//   }
 
-  resetForm(){
-    this.deleteForm.reset();
-  }
+//   resetForm(){
+//     this.deleteForm.reset();
+//   }
 
 
 
-}
+// }
