@@ -20,7 +20,8 @@ export class UserDeleteComponent {
 
   onSubmit(){
     
-    const userId = this.deleteForm.value.userId
+    const userId =Number(this.deleteForm.value.userId);
+    
     if(this.deleteForm.valid){
       const userId = this.deleteForm.value.userId;
       console.log("Deleting userId with Id : " , userId)
@@ -28,14 +29,15 @@ export class UserDeleteComponent {
       console.warn("Form is invalid");
     }
 
-    this.userDeleteService.DeleteUserById(Number(userId)).subscribe(
+    this.userDeleteService.DeleteUserById(userId).subscribe(
       next => {
         alert('✅ User deleted successfully!');
+        
         this.deleteForm.reset();
         console.log(next);
       },
       error => {
-        alert('Failed to delete user')
+        alert('Failed to delete user');
         console.log(error)
       }
     )};

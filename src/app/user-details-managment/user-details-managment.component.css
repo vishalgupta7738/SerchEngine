@@ -1,59 +1,29 @@
-.main-container {
-  background: #eaf8f9;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; 
-
+.container {
+  width: 1000px;
 }
 
-.heading {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 40px;
-  color: #1f2d3d;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.table th, .table td {
+  vertical-align: middle;
+  font-size: 0.95rem;
 }
 
-.button-container {
-  display: flex;
-  gap: 70px;
-  flex-wrap: wrap;
-  justify-content: center;
+input.form-control-sm {
+  font-size: 0.9rem;
+  padding: 0.4rem;
 }
 
-.action-button {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  font-weight: bold;
-  color: white;
-  font-size: 16px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.btn-sm {
+  padding: 4px 12px;
+  font-size: 0.85rem;
 }
 
-.action-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-}
+@media (max-width: 768px) {
+  .table {
+    font-size: 0.85rem;
+  }
 
-/* .insert {
-  background-color: #28a745;
-} */
-
-.update {
-  background-color: #007bff;
-}
-
-.delete {
-  background-color: #dc3545;
-}
-
-.view {
-  background-color: #17a2b8;
+  .btn {
+    width: 100%;
+    margin-bottom: 5px;
+  }
 }

@@ -8,37 +8,120 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthServicesService {
- // Vishal
-private currentUser: User | null = null;
-  constructor() { }
+//  // Vishal
+// private currentUser: User | null = null;
+//   constructor() { }
 
-   setUser(user: User) : void {
-    this.currentUser = user;
-    localStorage.setItem('currentUser', JSON.stringify(user)); // optional
-  }
+//    setUser(user: User) : void {
+//     this.currentUser = user;
+//     localStorage.setItem('currentUser', JSON.stringify(user)); // optional
+//   }
 
-    getCurrentUser(): User | null {
-    if (!this.currentUser) {
-      const userStr = localStorage.getItem('currentUser');
-      if (userStr) {
-        this.currentUser = JSON.parse(userStr);
+//     getCurrentUser(): User | null {
+//     if (!this.currentUser) {
+//       const userStr = localStorage.getItem('currentUser');
+//       if (userStr) {
+//         this.currentUser = JSON.parse(userStr);
+//       }
+//     }
+//     return this.currentUser;
+//   }
+//    getCurrentUserId(): number | null {
+//       const user = this.getCurrentUser();
+//     return user?.userId || null;
+//   }
+//  logout(): void {
+//     this.currentUser = null;
+//     localStorage.removeItem('currentUser');
+//   }
+  
+//   isLoggedIn(): boolean {
+//     return this.getCurrentUser() !== null;
+//   }
+// }
+
+// export interface User {
+//   userId: number;
+//   username: string;
+//   email: string;
+//   password: string;
+//   phoneNo: number;
+//   registerDate: string;
+//   isConfirm: string;
+// } 
+
+
+private apiUrl = 'https://localhost:7183/api/LoginJwt/Login';
+  private tokenKey = 'auth_token';
+  private roleKey = 'userRole';
+ 
+  
+private loginStatus = new BehaviorSubject<boolean>(false);
+  loginStatus$ = this.loginStatus.asObservable();
+
+private userRoleSubject = new BehaviorSubject<string | null>(null);
+  userRole$ = this.userRoleSubject.asObservable();
+
+  constructor(private http: HttpClient, private router: Router) {
+    // Access localStorage inside constructor (safe)
+   
+    if (typeof window !== 'undefined') {
+      const token = localStorage.getItem(this.tokenKey);
+      const role = localStorage.getItem(this.roleKey);
+      if (token) {
+        this.loginStatus.next(true);
+      }
+      if (role) {
+        this.userRoleSubject.next(role);
       }
     }
-    return this.currentUser;
   }
-   getCurrentUserId(): number | null {
-      const user = this.getCurrentUser();
-    return user?.userId || null;
-  }
- logout(): void {
-    this.currentUser = null;
-    localStorage.removeItem('currentUser');
-  }
+
+    
   
+    login(data: any) {
+    return this.http.post(this.apiUrl, data);
+    }
+
+  saveToken(token: string) {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem(this.tokenKey, token);
+      const decoded: any = jwtDecode(token);
+      const role = decoded['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
+      localStorage.setItem(this.roleKey, role);
+      this.loginStatus.next(true);
+      this.userRoleSubject.next(role);
+    }
+  }
+    getToken(): string | null {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem(this.tokenKey);
+    }
+    return null;
+  }
+
+  getUserRole(): string | null {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem(this.roleKey);
+    }
+    return null;
+  }
+
   isLoggedIn(): boolean {
-    return this.getCurrentUser() !== null;
+    return !!this.getToken();
+  }
+
+  logout() {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem(this.tokenKey);
+      localStorage.removeItem(this.roleKey);
+    }
+    this.loginStatus.next(false);
+    this.userRoleSubject.next(null);
+    this.router.navigate(['/#']);
   }
 }
+
 
 export interface User {
   userId: number;

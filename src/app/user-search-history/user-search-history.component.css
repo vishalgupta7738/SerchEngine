@@ -57,3 +57,23 @@ button {
   background-color: aquamarine;
   border-radius: 10%;
 }
+
+.HistoryHome {
+ position: fixed; 
+ width: 100px;
+  top: 110px;
+  right: 20px;
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 8px 17px;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.loginHome:hover {
+  background-color: #0056b3;
+}

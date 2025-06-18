@@ -10,6 +10,8 @@ import { response } from 'express';
 import { RouterLink } from '@angular/router';
 import { error } from 'node:console';
 import { __await } from 'tslib';
+import { userInfo } from 'node:os';
+
 
 @Component({
   selector: 'app-sing-up',
@@ -27,19 +29,23 @@ export class SingUpComponent {
   }   
  constructor(private accessservice:UserDetailsService){}
 
+
+
   ClickSingUp(){
   
     this.accessservice.UserRegister(this.Users).subscribe(response=>{
       console.log(response);
        alert('Please wait for Admin Approval');
+   
+      
     },error=>{
       console.log(error);
        alert("Please Enter Correct Information");
    
     }
     
+    
   ); 
-   
   }
 
 }

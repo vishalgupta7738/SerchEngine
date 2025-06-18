@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { log } from 'console';
+import { BikeDataService } from '../Services/bike-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-brand',
@@ -10,7 +12,8 @@ import { log } from 'console';
   styleUrl: './brand.component.css'
 })
 export class BrandComponent {
-
+constructor(private bikebrand:BikeDataService,private route:Router)
+{}
   bikeBrand = [
     {name : 'Royal Enfield', logo:'/Brandlogo/Royal.png'},
     {name : 'Bajaj' , logo:'/Brandlogo/bajaj.png'},
@@ -24,5 +27,15 @@ export class BrandComponent {
     {name : 'Triumph' , logo:'/Brandlogo/triumph.png'}
 
   ];
+  // GetBrandBikes(name:string)
+  // {
+  //   console.log(name);
+  //   this.route.navigate(['/Search'],{
+  //     queryParams:{query:name,passvalue:true}
+      
+      
+  //   })  
+     
+  // }
 
 }

@@ -12,6 +12,7 @@ export class SearchService {
 
   getSearchHistory(userId: number): Observable<SearchHistory[]> {
   return this.http.get<SearchHistory[]>(`${this.apiUrl}/search-history/${userId}`);
+  //
 }
 getUsersHistory()
 {
@@ -28,7 +29,8 @@ saveSearch(searchTerm:string, userId?: number): Observable<any> {
 
  } ; 
  // return this.http.post(`${this.apiUrl}/save-search`,history );
- return this.http.post(`${this.apiUrl}/save-search`,history);
+ return this.http.post('https://localhost:7183/api/Search/save-search',history);
+ // return this.http.post(`${this.apiUrl}/save-search`,history);
 }
 searchBike(bikename:string)
 {
@@ -40,6 +42,10 @@ deleteSearchHistory(ids: number[]) {
  responseType: 'text' 
   });
  
+}
+deleteuser(num:number)
+{
+ return this.http.delete('https://localhost:7183/api/UserCRUD?id='+num);
 }
 
 

@@ -19,7 +19,7 @@
         <span class="detail-label">Registration Date:</span>
         <span class="detail-value">{{ userDetails.registerdate | date: 'dd MMM yyyy' }}</span>
       </div>
-      <div class="detail-row">
+      <!-- <div class="detail-row">
         <span class="detail-label">Account Status:</span>
         <span
           class="detail-value status"
@@ -27,11 +27,11 @@
         >
           {{ userDetails.isconfirm ? 'Confirmed' : 'Not Confirmed' }}
         </span>
-      </div>
+      </div> -->
     </div>
 
-    <button (click)="logout()" class="logout">Logout</button>
-    <br>
+    <!-- <button (click)="logout()" class="logout">Logout</button>
+    <br> -->
     <button routerLink="/UserHome">Home</button>
   </div>
 

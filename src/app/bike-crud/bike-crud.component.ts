@@ -4,18 +4,21 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup ,  FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BikeDataService } from '../Services/bike-data.service';
 import { error } from 'console';
+import { RouterLink } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-bike-crud',
   standalone: true, 
-  imports: [FormsModule, ReactiveFormsModule, CommonModule  , HttpClientModule ],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule  , HttpClientModule , RouterLink, NgxPaginationModule ],
   templateUrl: './bike-crud.component.html',
-  styleUrls: ['./bike-crud.component.css'] 
+  styleUrls: ['./bike-crud.component.css']  
 })
 
 export class BikeCrudComponent {
  
-
+  page : number = 1 ; // current page 
+   itemsPerPage: number = 8;
 
 bike = {
     bikename: '',

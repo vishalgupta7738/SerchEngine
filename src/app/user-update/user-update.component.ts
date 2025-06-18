@@ -59,18 +59,18 @@ condition:boolean=false;
     this.editMode = true;
 
     if(this.editMode){
-      this.userManagmentService.UpdateUser(this.selectId , this.UpdateUser).subscribe(
-        next => {
-          alert('✅ User updated!')
-          this.editMode = false;
-           this.resetForm();
-            this.condition=false;
+  //     this.userManagmentService.UpdateUser(this.selectId , this.UpdateUser).subscribe(
+  //       next => {
+  //         alert('✅ User updated!')
+  //         this.editMode = false;
+  //          this.resetForm();
+  //           this.condition=false;
          
-        },
-        error => {alert('❌ Update failed!')
-        console.log(error)
-    }
-  );
+  //       },
+  //       error => {alert('❌ Update failed!')
+  //       console.log(error)
+  //   }
+  // );
     }
   }
   UserDetails()

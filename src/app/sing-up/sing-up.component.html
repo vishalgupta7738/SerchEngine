@@ -1,9 +1,13 @@
-
 <body>
+  <div>
+    <button class="singupHome" routerLink="/HomePage">🏠 Home</button>
+  </div>
+
   <div class="signup-container">
     <h2>Sign Up</h2>
 
     <form #signupForm="ngForm" (ngSubmit)="ClickSingUp()">
+      <!-- Username -->
       <div class="form-group">
         <label for="username">Username</label>
         <input
@@ -14,29 +18,42 @@
           required
           minlength="3"
           maxlength="25"
+          pattern="^[a-zA-Z_ ]+$"
           class="form-control"
+          #username="ngModel"
         />
-        <div *ngIf="signupForm.submitted && !signupForm.controls['username']?.valid" class="error">
-          Username is required (min 3 chars)
+        <div *ngIf="username.touched && !username.valid" class="error">
+          Username must be 3–25 characters and cannot contain numbers.
         </div>
       </div>
 
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input
-          id="email"
-          name="email"
-          [(ngModel)]="Users.email"
-          type="email"
-          required
-          email
-          class="form-control"
-        />
-        <div *ngIf="signupForm.submitted && !signupForm.controls['email']?.valid" class="error">
-          Enter a valid email
-        </div>
-      </div>
+      <!-- Email -->
+ <label for="email">Email</label>
+<input
+  id="email"
+  name="email"
+  type="email"
+  class="form-control"
+  required
+  email
+  [(ngModel)]="Users.email"
+  #email="ngModel"
+/>
 
+<!-- Validation message -->
+<div *ngIf="email.invalid && email.touched" class="text-danger">
+  <div *ngIf="email.errors?.['required']">
+    Email is required.
+  </div>
+  <div *ngIf="email.errors?.['email']">
+    <!-- Please enter a valid email address (e.g., user@example.com). -->
+     Please enter a valid email address (e.g., user&#64;example.com).
+
+  </div>
+</div>
+
+
+      <!-- Phone -->
       <div class="form-group">
         <label for="phone_no">Phone Number</label>
         <input
@@ -46,15 +63,19 @@
           type="text"
           required
           pattern="^[0-9]{10}$"
-          class="form-control" 
           maxlength="10"
+          class="form-control"
+          #phone_no="ngModel"
         />
-        <div *ngIf="signupForm.submitted && !signupForm.controls['phone_no']?.valid" class="error">
-          Enter 10-digit phone number
+        <div *ngIf="phone_no.touched && !phone_no.valid" class="error">
+          Enter a 10-digit phone number (0–9 only).
         </div>
       </div>
 
-      <button type="submit">Sign Up</button>
+      <!-- Submit -->
+      <button type="submit" [disabled]="!signupForm.valid" class="btn btn-primary mt-2">
+        Sign Up
+      </button>
     </form>
   </div>
 </body>

@@ -47,6 +47,7 @@ export class ReportGenerateComponentComponent implements OnInit {
 
     this.counter.getBikeNameAndCount().subscribe(data2 => {
       this.bikedetails = data2;
+      console.log(data2);
     });
   }
 

@@ -12,6 +12,7 @@
   gap: 15px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   transition: all 0.3s ease-in-out;
+  
 }
 
 .bike-form input[type="text"],
@@ -52,4 +53,67 @@
   box-shadow: 4px 4px 20px #a0a0a0,
               -4px -4px 20px #ffffff;
   background-color: #0056b3;
+}
+
+.resetbtn {
+  background-color: #dc3545;      /* Bootstrap danger red */
+  color: white;
+  border: none;
+  padding: 7px 22px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 9px;
+  margin-right: 20px;
+}
+
+.resetbtn:hover {
+  background-color: #c82333;
+  transform: scale(1.03);
+}
+
+.resetbtn:active {
+  transform: scale(0.98);
+  background-color: #bd2130;
+}
+
+
+.allbikes {
+  margin-left: 85%;
+  background-color: green; 
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+
+}
+
+.previousbtn {
+  background-color: #6c757d;       /* Bootstrap secondary color */
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 55px;
+  margin-left: 1%;
+}
+
+.previousbtn:hover {
+  background-color: #5a6268;
+  transform: scale(1.03);
+}
+
+.previousbtn:active {
+  background-color: #545b62;
+  transform: scale(0.97);
 }

@@ -7,13 +7,24 @@ import { Observable } from 'rxjs';
 })
 export class UserDetailsService {
 
-  private ApiUrl = 'https://localhost:7183/api/Admin/GetAllUserRequest';
+  private ApiUrl = 'https://localhost:7183/api/UserCRUD';
 
   constructor(private Http : HttpClient) { }
 
   getUserDetails() : Observable<any>{
     return this.Http.get(this.ApiUrl);
   }
+  
+  // private DeleteUser = 'https://localhost:7183/api/UserCRUD';
+
+  deleteUser(id : number) : Observable<any> {
+    return this.Http.delete('https://localhost:7183/api/UserCRUD?id='+ id);
+  }
+
+
+
+
+
 
 
   ChangeConfirmUserStatuse(UserChangeStatus:{})

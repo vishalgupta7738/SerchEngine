@@ -11,9 +11,9 @@ export class UserManagmentService {
 
   constructor(private Http : HttpClient) { }
 
-  UpdateUser(userId : number , user : any)
+  UpdateUser(user={})
 {
-  return this.Http.put(this.UpdateUrl , user)
+  return this.Http.put(this.UpdateUrl , user);
 }
 
 private DeleteUrl = 'https://localhost:7183/api/UserCRUD?id='

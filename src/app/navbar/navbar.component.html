@@ -1,4 +1,4 @@
-
+<!-- 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow py-3">
   <div class="container-fluid">
 
@@ -34,4 +34,42 @@
       </ul>
     </div>
   </div>
-</nav>                     
+</nav>                      -->
+
+<ng-container *ngIf="userRole !== 'Admin'">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow py-3">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="/Images/logoBike.png" alt="Logo" height="50" width="50" class="me-2" />
+        <strong>ＳｕｐｅｒＢｉｋｅ</strong>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto d-flex flex-column flex-lg-row align-items-center gap-2 gap-lg-3 mt-3 mt-lg-0">
+          <div class="mx-auto my-3 my-lg-0 d-flex justify-content-center search-container">
+            <input type="text" class="form-control search-input" placeholder="Search" [(ngModel)]="searchTerm" />
+            <button class="btn btn-outline-light ms-2" (click)="searchBike()">🔎 Search</button>
+          </div>
+
+          <!-- Guest -->
+          <ng-container *ngIf="!isLoggedIn">
+            <li class="nav-item"><a routerLink="/SingUp" class="btn btn-primary">🤝 SignUp</a></li>
+            <li class="nav-item"><a routerLink="/Login" class="btn btn-primary">🔒 Login</a></li>
+          </ng-container>
+
+          <!-- User -->
+          <ng-container *ngIf="isLoggedIn && userRole === 'User'">
+            <li class="nav-item"><a routerLink="/profile" class="btn btn-primary">🧑 Profile</a></li>
+            <li class="nav-item"><a routerLink="/searchHistory" class="btn btn-primary">📜 History</a></li>
+            <li class="nav-item"><a (click)="logout()" class="btn btn-danger">🚪 Logout</a></li>
+          </ng-container>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</ng-container>

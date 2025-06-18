@@ -1,55 +1,57 @@
-/* Background for the whole section */
-:host {
-  display: block;
-  padding: 30px;
-  background: linear-gradient(to right, #e3f2fd, #f1f8ff); /* soft blue gradient */
-  min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Container Enhancements */
+.container {
+ width: 1000px;
 }
 
-/* Heading */
-h3 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 25px;
-  font-size: 26px;
-}
-
-/* Table styling */
-.table {
-  width: 100%;
-  border-collapse: collapse;
+/* Page background and shadow */
+.container.bg-white {
   background-color: #ffffff;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Heading Styling */
+h2.text-primary {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Table Styling */
+.table {
+  border-radius: 10px;
   overflow: hidden;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
-/* Header row */
-.table thead {
-  background-color: yellow;
-  color: black;
+.table th {
+  background-color: #343a40 !important;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.4px;
 }
 
-.table thead th {
-  padding: 15px;
-  text-align: left;
-  font-size: 16px;
+.table td, .table th {
+  vertical-align: middle !important;
+  padding: 0.75rem;
 }
 
-/* Data rows */
-.table tbody tr {
-  transition: background 0.3s ease;
+/* Row hover effect */
+.table-hover tbody tr:hover {
+  background-color: #f3f9ff;
 }
 
-.table tbody tr:hover {
-  background-color: #f1f9ff;
-}
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .table {
+    font-size: 0.85rem;
+  }
 
-/* Cells */
-.table tbody td {
-  padding: 14px;
-  border-bottom: 1px solid #eee;
-  font-size: 15px;
-  color: #444;
+  h2.text-primary {
+    font-size: 1.25rem;
+  }
 }

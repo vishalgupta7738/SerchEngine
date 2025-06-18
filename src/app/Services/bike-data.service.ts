@@ -15,6 +15,10 @@ export class BikeDataService {
   getAllBikes(): Observable<any>{
     return this.Http.get(this.apiUrl);
   }
+getImageByKeyword(keyword: string): Observable<any> {
+  return this.Http.get(`https://localhost:7183/api/Image/search?keyword=${encodeURIComponent(keyword)}`);
+}
+
 
   // post
   private InsertUrl = 'https://localhost:7183/api/Bike/add';
@@ -60,9 +64,13 @@ export class BikeDataService {
       this.bikeNameSubject.next(bikename);
         
      }
+       GetBrandBike(BrandName:string):Observable<any>
+  {
+   return this.Http.get('https://localhost:7183/api/Bike/SearchByBrandName?BrandName='+BrandName);
+  }
      
   }
-// mantu INterface
+
 
   export interface Bike {
   bikeId: number;

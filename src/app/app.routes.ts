@@ -27,7 +27,19 @@ export const routes: Routes = [
     {path : 'Login', component:LoginComponent} ,
     {path : 'SingUp' , component:SingUpComponent},
     {path : 'Search' , component:ClickSearchComponent},
-    {path : 'Admin' , component :AdminComponent , canActivate : [AuthGuard] },
+    // {path : 'Admin' , component :AdminComponent , canActivate : [AuthGuard],
+    {path : 'Admin' , component:AdminComponent , canActivate: [AuthGuard], data: { expectedRole: 'Admin' }, 
+        children:[
+            {path : 'bikeOperation' , component:OperationButtonComponent},
+            {path : 'User' , component: UserDetailsManagmentComponent},
+            {path : 'userSearchHistory' , component:SeeAllHistoryComponent},
+            {path: 'report' , component:ReportGenerateComponentComponent},
+            {path : 'PendingRequest' , component:PendingdetailscomComponent},
+          
+
+        ]
+     },
+    {path : 'Admin' , component :AdminComponent},
     {path : '' , redirectTo: '/Login' , pathMatch : 'full'},
     {path : 'Add' , component:BikeCrudComponent},
     {path : 'Update' , component:UpdateBikeComponent},
@@ -41,14 +53,20 @@ export const routes: Routes = [
     {path : 'PendingRequest' , component:PendingdetailscomComponent},
     {path : 'singUp' , component:HomeComponent},
     {path : 'UserLogin' , component:HomeComponent},
-     {path : 'profile' , component:UserProfileComponent},
+     {path : 'profile' , component:UserProfileComponent, canActivate: [AuthGuard], data: { expectedRole: 'User' }},
     {path:'report',component:ReportGenerateComponentComponent},
     {path : 'ReportHome' , component:AdminComponent},
-    {path : 'searchHistory' , component:UserSearchHistoryComponent},
+    {path : 'searchHistory' , component:UserSearchHistoryComponent, canActivate: [AuthGuard], data: { expectedRole: 'User' }},
     {path : 'userLogout' , component:HomeComponent},
     {path : 'userSearchHistory' ,component:SeeAllHistoryComponent},
     {path : 'UserHome' , component:HomeComponent},
-    {path : 'bikeOperation' , component:OperationButtonComponent}
+    {path : 'bikeOperation' , component:OperationButtonComponent},
+    {path: 'HomePage' , component:HomeComponent},
+    {path : 'Homehistrory' , component:HomeComponent},
+    {path : 'AddBikes' , component:BikeCrudComponent},
+    {path : 'AllBikes' , component:OperationButtonComponent},
+      
+   
 
     
 ];

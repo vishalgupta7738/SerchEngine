@@ -1,0 +1,74 @@
+  #bodyimg{
+   
+     display: flex;
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     margin: 0;
+     padding: 0;
+     height: 100vh;
+     justify-content: center;
+
+  }
+  
+  #divId {
+    width: 100%;
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 30px 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+   
+  }
+
+  #divId h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;  
+  }
+
+  form div {
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: block;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 6px;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.3s;
+  }
+
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  }
+
+  .sub {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .sub:hover {
+    background-color: #0056b3;
+  }

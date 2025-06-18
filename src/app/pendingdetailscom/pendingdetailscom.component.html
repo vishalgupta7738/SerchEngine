@@ -1,22 +1,37 @@
-<table class="table table-bordered">
-    <thead>
-        <th>UserId</th>
-        <th>UserName</th>
-        <th>Email</th>
-        <th>PhoneNo</th>
-        <th>Registration Date</th>
-        <th>IsConfirm</th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let user of Users">
-            <td>{{user.userId}}</td>
-            <td>{{user.username}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.phone_no}}</td>
-            <td>{{user.registerdate}}</td>
-            <td>{{user.isconfirm}}</td>
-            <td><button type="button" class="btn btn-outline-primary" (click)="ApprovedUser($event)"  value="{{user.email}}" >Approved</button></td>
-            <td><button type="button" class="btn btn-outline-danger"(click)="RejectUser($event)"   value="{{user.email}}" >Reject</button></td>
+<div class="container-fluid p-5 bg-light min-vh-100">
+  <div class="table-responsive shadow-lg p-4 bg-white rounded">
+    <h2 class="mb-4 text-center text-primary">User List</h2>
+    <table class="table table-bordered table-hover text-center align-middle">
+      <thead class="table-primary">
+        <tr>
+          <th>UserName</th>
+          <th>Email</th>
+          <th>PhoneNo</th>
+          <th>Registration Date</th>
+          <th>IsConfirm</th>
+          <th>Approve</th>
+          <th>Reject</th>
         </tr>
-    </tbody>
-</table>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of Users">
+          <td data-label="UserName">{{user.username}}</td>
+          <td data-label="Email">{{user.email}}</td>
+          <td data-label="PhoneNo">{{user.phone_no}}</td>
+          <td data-label="Registration Date">{{user.registerdate}}</td>
+          <td data-label="IsConfirm">{{user.isconfirm}}</td>
+          <td data-label="Approve">
+            <button type="button" class="btn btn-outline-success" (click)="ApprovedUser($event)" value="{{user.email}}">
+              Approve
+            </button>
+          </td>
+          <td data-label="Reject">
+            <button type="button" class="btn btn-outline-danger" (click)="RejectUser($event)" value="{{user.email}}">
+              Reject
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

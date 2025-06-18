@@ -1,8 +1,17 @@
+<!-- 
+
+
 
   <body>
+    <div>
+<button class="loginHome" routerLink="/HomePage">🏠 Home</button>
+    </div>
+
   <div id="divId">
+    
     <h2>Login</h2>
 
+  
     <form #loginForm="ngForm" (ngSubmit)="LoginSubmit()">
       <div class="email">
         <label for="EmailId"><b>EmailId :</b></label>
@@ -43,4 +52,29 @@
       <button type="submit" class="sub">Login</button>
     </form>
   </div>
+</body> -->
+
+
+
+ <body>
+  <div id="divId">
+    <h2>Login</h2>
+<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+  <div class="email">
+  <input formControlName="email" placeholder="Email" />
+  <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger">
+    Valid email is required.
+  </div>
+</div>
+
+  <input formControlName="password" type="password" placeholder="Password" class="pwd" style="margin-top: 20px;"/>
+  <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger">
+    Password is required.
+  </div>
+
+  <button class="sub" type="submit">Login</button>
+
+  <p *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</p>
+</form></div>
+
 </body>

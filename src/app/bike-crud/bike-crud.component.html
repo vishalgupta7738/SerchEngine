@@ -1,26 +1,90 @@
+<!-- <div style="margin-top: 2%;">
+ <button class="bikeCrudHome" routerLink="/HomePage">🏠Home</button> 
+</div> -->
+<!-- 
+<div>
+   
+</div>
 
-<form (ngSubmit)="submitForm()" enctype="multipart/form-data" #bikeForm="ngForm" class="bike-form">
-  <label for="bikename">Bike Name:</label>
-  <input type="text" id="bikename" name="bikename" [(ngModel)]="bike.bikename" placeholder="Bike Name" required />
+<div>
+  <button class="previousbtn" routerLink="/Admin">⏮️ Back</button>
+  <button class="allbikes" routerLink="/AllBikes">All Bikes</button>
+  
+</div>
 
-  <label for="model">Model:</label>
-  <input type="text" id="model" name="model" [(ngModel)]="bike.model" placeholder="Model" required />
+<form (ngSubmit)="submitForm()" enctype="multipart/form-data" #bikeForm="ngForm" class="container bg-white p-4 shadow rounded">
+  <h4 class="text-primary mb-4">Add Bike Details</h4>
 
-  <label for="cc">CC:</label>
-  <input type="number" id="cc" name="cc" [(ngModel)]="bike.cc" placeholder="CC" required />
+  <div class="row mb-3">
+    <label for="bikename" class="col-sm-3 col-form-label">Bike Name:</label>
+    <div class="col-sm-9">
+      <input type="text" id="bikename" name="bikename" class="form-control" [(ngModel)]="bike.bikename" placeholder="Bike Name" required />
+    </div>
+  </div>
 
-  <label for="brand">Brand:</label>
-  <input type="text" id="brand" name="brand" [(ngModel)]="bike.brand" placeholder="Brand" required />
+  <div class="row mb-3">
+    <label for="model" class="col-sm-3 col-form-label">Model:</label>
+    <div class="col-sm-9">
+      <input type="text" id="model" name="model" class="form-control" [(ngModel)]="bike.model" placeholder="Model" required />
+    </div>
+  </div>
 
-  <label for="price">Price (₹):</label>
-  <input type="number" id="price" name="price" [(ngModel)]="bike.price" placeholder="Price" required />
+  <div class="row mb-3">
+    <label for="cc" class="col-sm-3 col-form-label">CC:</label>
+    <div class="col-sm-9">
+      <input type="number" id="cc" name="cc" class="form-control" [(ngModel)]="bike.cc" placeholder="CC" required />
+    </div>
+  </div>
 
-  <label for="year">Year:</label>
-  <input type="number" id="year" name="year" [(ngModel)]="bike.year" placeholder="Year" required />
+  <div class="row mb-3">
+    <label for="brand" class="col-sm-3 col-form-label">Brand:</label>
+    <div class="col-sm-9">
+      <input type="text" id="brand" name="brand" class="form-control" [(ngModel)]="bike.brand" placeholder="Brand" required />
+    </div>
+  </div>
 
-  <label for="imageFile">Upload Image:</label>
-  <input type="file" id="imageFile" name="imageFile" (change)="onFileSelected($event)" accept="image/*" required />
+  <div class="row mb-3">
+    <label for="price" class="col-sm-3 col-form-label">Price (₹):</label>
+    <div class="col-sm-9">
+      <input type="number" id="price" name="price" class="form-control" [(ngModel)]="bike.price" placeholder="Price" required />
+    </div>
+  </div>
 
-  <button type="submit">Add Bike</button>
-</form> 
+  <div class="row mb-3">
+    <label for="year" class="col-sm-3 col-form-label">Year:</label>
+    <div class="col-sm-9">
+      <input type="number" id="year" name="year" class="form-control" [(ngModel)]="bike.year" placeholder="Year" required />
+    </div>
+  </div>
 
+  <div class="row mb-4">
+    <label for="imageFile" class="col-sm-3 col-form-label">Upload Image:</label>
+    <div class="col-sm-9">
+      <input type="file" id="imageFile" name="imageFile" class="form-control" (change)="onFileSelected($event)" accept="image/*" required />
+    </div>
+  </div>
+
+  <div class="text-end">
+     <button type="reset" class="resetbtn">Reset</button>
+    <button type="submit" class="btn btn-success px-4">➕ Add Bike</button>
+  </div>
+</form>
+<pagination-controls (pageChange)="page = $event" [autoHide]="true" class="mt-3 text-center"></pagination-controls> 
+ -->
+
+ <div> </div> <div> <button class="previousbtn" routerLink="/Admin">⏮️ Back</button> 
+  <button class="allbikes" routerLink="/AllBikes">All Bikes</button> 
+</div> <form (ngSubmit)="submitForm()" enctype="multipart/form-data" #bikeForm="ngForm" class="container bg-white p-4 shadow rounded">
+   <h4 class="text-primary mb-4">Add Bike Details</h4> <div class="row mb-3"> <label for="bikename" class="col-sm-3 col-form-label">Bike Name:</label> 
+    <div class="col-sm-9"> <input type="text" id="bikename" name="bikename" class="form-control" [(ngModel)]="bike.bikename" placeholder="Bike Name" required /> </div>
+   </div> <div class="row mb-3"> <label for="model" class="col-sm-3 col-form-label">Model:</label>
+     <div class="col-sm-9"> <input type="text" id="model" name="model" class="form-control" [(ngModel)]="bike.model" placeholder="Model" required /> </div> 
+    </div> <div class="row mb-3"> <label for="cc" class="col-sm-3 col-form-label">CC:</label> 
+      <div class="col-sm-9"> <input type="number" id="cc" name="cc" class="form-control" [(ngModel)]="bike.cc" placeholder="CC" required /> </div> 
+    </div> <div class="row mb-3"> <label for="brand" class="col-sm-3 col-form-label">Brand:</label> 
+      <div class="col-sm-9"> <input type="text" id="brand" name="brand" class="form-control" [(ngModel)]="bike.brand" placeholder="Brand" required /> </div> </div> 
+      <div class="row mb-3"> <label for="price" class="col-sm-3 col-form-label">Price (₹):</label> <div class="col-sm-9"> <input type="number" id="price" name="price" class="form-control" [(ngModel)]="bike.price" placeholder="Price" required /> </div>
+     </div> <div class="row mb-3"> <label for="year" class="col-sm-3 col-form-label">Year:</label> <div class="col-sm-9"> <input type="number" id="year" name="year" class="form-control" [(ngModel)]="bike.year" placeholder="Year" required /> </div>
+     </div> <div class="row mb-4"> <label for="imageFile" class="col-sm-3 col-form-label">Upload Image:</label> <div class="col-sm-9"> <input type="file" id="imageFile" name="imageFile" class="form-control" (change)="onFileSelected($event)" accept="image/*" required /> </div> </div> 
+     <div class="text-end"> <button type="reset" class="resetbtn">Reset</button> <button type="submit" class="btn btn-success px-4">➕ Add Bike</button> </div> 
+</form>

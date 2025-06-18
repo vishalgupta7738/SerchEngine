@@ -16,20 +16,10 @@
 } */
 
 
-.main-content {
-  position: relative;
-  background-image: url('https://cdn.bikedekho.com/processedimages/royal-enfield/roadstar/source/roadstar680f56320dc76.jpg'); 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  font-family: 'Segoe UI', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  z-index: 1;
-}
+
+
+
+
 
 /* Add a dark overlay */
 .main-content::before {

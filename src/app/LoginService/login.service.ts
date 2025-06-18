@@ -20,9 +20,14 @@ GetDataForPass(Userdata={}){
  return this.Http.put(this.updateUrl ,Userdata);
 
   }
-
-
+   loginMethod(firstuserlogin={})
+  {
+    return this.Http.put('https://localhost:7183/api/User/UserFirstLogin',firstuserlogin);
+  }
 }
+
+
+
 
 
 

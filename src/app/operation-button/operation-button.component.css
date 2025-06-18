@@ -1,53 +1,60 @@
 .bike-table-container {
-  padding: 20px;
-  font-family: 'Segoe UI', sans-serif;
-  max-width: 100%;
-  overflow-x: auto;
+ width: 1000px;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
+.table th, .table td {
+  vertical-align: middle;
+  font-size: 0.95rem;
 }
 
-.bike-table {
-  width: 100%;
-  border-collapse: collapse;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+input.form-control-sm {
+  font-size: 0.9rem;
+  padding: 0.35rem;
 }
 
-.bike-table th,
-.bike-table td {
-  padding: 12px 16px;
-  text-align: center;
-  border: 1px solid #ddd;
+.btn-sm {
+  font-size: 0.8rem;
+  padding: 4px 10px;
 }
 
-.bike-table th {
-  background-color: #374151;
+@media (max-width: 768px) {
+  .bike-table-container {
+    padding: 15px;
+  }
+
+  .table {
+    font-size: 0.85rem;
+  }
+
+  .form-control-sm {
+    font-size: 0.8rem;
+  }
+
+  .btn {
+    width: 100%;
+    margin-top: 5px;
+  }
+}
+.AddBikesButton {
+  margin-left: 85%;
+  background-color: red; 
   color: white;
-}
-
-.bike-table tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-.edit-btn,
-.delete-btn {
-  padding: 6px 12px;
-  margin: 2px;
   border: none;
-  border-radius: 4px;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  
+}
+.AddBikesButton:hover {
+  background-color: #218838;
+  transform: translateY(-1px);
 }
 
-.edit-btn {
-  background-color: #007bff;
-  color: white;
-}
-
-.delete-btn {
-  background-color: #dc3545;
-  color: white;
-}

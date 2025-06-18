@@ -18,14 +18,44 @@ import { AuthServicesService } from '../LoginService/auth-services.service';
   styleUrl: './navbar.component.css',
   providers:[HttpClient,BikeDataService,Router,SearchService]
 })
-export class NavbarComponent {
+export class NavbarComponent  implements OnInit {
+ isLoggedIn: boolean = false;
+  userRole: string | null = '';
+
+   constructor(http:HttpClient,private Bikeservice:BikeDataService , private route : Router, private searchService:SearchService,private authService:AuthServicesService){ }
+  ngOnInit(): void {
+   this.isLoggedIn = this.authService.isLoggedIn();
+    this.userRole = this.authService.getUserRole();
+// by me 
+    if (this.isLoggedIn && this.userRole === 'Admin' && this.route.url !== '/Admin') {
+  this.route.navigate(['/Admin']);
+   }
+    // On login/logout
+    this.authService.loginStatus$.subscribe(status => {
+      this.isLoggedIn = status;
+      this.userRole = this.authService.getUserRole();
+    });
+  }
+    logout() {
+    this.authService.logout();
+    // toaster service step -> 1st .npm install @angular/animations. 2nd . add in constructor taster services .  
+  
+     this.route.navigate(['/']);
+  }
+  // Vishal  ji kaa code niche kaa 
+  
   searchTerm='';
    valid=false;
   condition=true;
-   constructor(http:HttpClient,private Bikeservice:BikeDataService , private route : Router, private searchService:SearchService){ }
- 
+
   searchBike() : void
   {
+    if(this.searchTerm=='')
+    {
+      alert("Please Enter Bike Name.");
+    }
+    else
+    {
    if(localStorage.getItem('valid')){
     this.valid=true;
     
@@ -60,4 +90,5 @@ export class NavbarComponent {
   console.log(this.searchTerm);
 }
 }
+  }
 }

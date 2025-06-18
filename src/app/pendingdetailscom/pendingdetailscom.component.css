@@ -1,0 +1,35 @@
+/* Full page layout background */
+body {
+  background: linear-gradient(to right, #f8f9fa, #e3f2fd);
+}
+
+/* Table styles */
+.table th, .table td {
+  vertical-align: middle;
+  font-size: 1rem;
+}
+
+.table th {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.table td button {
+  transition: transform 0.2s ease;
+}
+
+.table td button:hover {
+  transform: scale(1.05);
+}
+
+/* Optional mobile tweaks */
+@media (max-width: 768px) {
+  table {
+    font-size: 0.85rem;
+  }
+
+  .btn {
+    padding: 4px 10px;
+    font-size: 0.8rem;
+  }
+}
