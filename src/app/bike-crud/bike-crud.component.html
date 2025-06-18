@@ -73,7 +73,7 @@
  -->
 
  <div> </div> <div> <button class="previousbtn" routerLink="/Admin">⏮️ Back</button> 
-  <button class="allbikes" routerLink="/AllBikes">All Bikes</button> 
+  <button class="allbikes" routerLink="/AllBikes">View All Bikes</button> 
 </div> <form (ngSubmit)="submitForm()" enctype="multipart/form-data" #bikeForm="ngForm" class="container bg-white p-4 shadow rounded">
    <h4 class="text-primary mb-4">Add Bike Details</h4> <div class="row mb-3"> <label for="bikename" class="col-sm-3 col-form-label">Bike Name:</label> 
     <div class="col-sm-9"> <input type="text" id="bikename" name="bikename" class="form-control" [(ngModel)]="bike.bikename" placeholder="Bike Name" required /> </div>

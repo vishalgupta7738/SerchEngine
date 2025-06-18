@@ -8,6 +8,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { SearchService } from '../search.service';
 import { AuthServicesService } from '../LoginService/auth-services.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class NavbarComponent  implements OnInit {
  isLoggedIn: boolean = false;
   userRole: string | null = '';
 
-   constructor(http:HttpClient,private Bikeservice:BikeDataService , private route : Router, private searchService:SearchService,private authService:AuthServicesService){ }
+   constructor(http:HttpClient,private Bikeservice:BikeDataService , private route : Router, private searchService:SearchService,private authService:AuthServicesService, private toastr: ToastrService){ }
   ngOnInit(): void {
    this.isLoggedIn = this.authService.isLoggedIn();
     this.userRole = this.authService.getUserRole();
@@ -39,7 +40,8 @@ export class NavbarComponent  implements OnInit {
     logout() {
     this.authService.logout();
     // toaster service step -> 1st .npm install @angular/animations. 2nd . add in constructor taster services .  
-  
+       this.toastr.info('Logged out successfully', 'Info');
+
      this.route.navigate(['/']);
   }
   // Vishal  ji kaa code niche kaa 

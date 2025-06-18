@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';  
 import { OperationButtonComponent } from '../operation-button/operation-button.component';
 import { AuthServicesService } from '../LoginService/auth-services.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin',
@@ -23,12 +24,14 @@ export class AdminComponent {
 
 
       showLayout = true;
-  constructor(private router: Router,private serviceforcount:RequestService,private authService : AuthServicesService ) {};
+  constructor(private router: Router,private serviceforcount:RequestService,private authService : AuthServicesService,  private toastr: ToastrService ) {};
   
   
       logout(){
        // localStorage.removeItem('jwtToken');
        this.authService.logout(); 
+            this.toastr.info('Logged out successfully !!');
+
         this.router.navigate(['/Login']);
       }
 

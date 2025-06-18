@@ -42,3 +42,38 @@
   transform: scale(1.05);
 }
 
+
+.nav-item {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.nav-item a.btn {
+  font-size: 16px;
+  padding: 2px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-item a.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.nav-item a.btn-primary:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+.nav-item a.btn-danger {
+  background-color: #dc3545;
+  border: none;
+}
+
+.nav-item a.btn-danger:hover {
+  background-color: #a71d2a;
+  color: white;
+}

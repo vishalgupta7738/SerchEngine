@@ -65,6 +65,7 @@ export const routes: Routes = [
     {path : 'Homehistrory' , component:HomeComponent},
     {path : 'AddBikes' , component:BikeCrudComponent},
     {path : 'AllBikes' , component:OperationButtonComponent},
+    {path : 'BackBtn' , component:HomeComponent}
       
    
 

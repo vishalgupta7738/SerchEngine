@@ -42,9 +42,11 @@
    <img src="/Images/dog.jpeg"  style="height: 600px;">
     <h1 class="not-found-text">No bikes found matching "{{ searchterm }}"</h1>
   </div> -->
+<div class="text-center my-4">
+  <button class="btn btn-secondary back-button" routerLink="/BackBtn">↩️Back</button>
+</div>
 
-
-  <div *ngIf="paginatedBikes.length > 0">
+<div *ngIf="paginatedBikes.length > 0; else noBikes">
   <h3 class="mb-4 my-2">Search Results for "{{ searchterm }}"</h3>
   <div class="row">
     <div class="col-lg-4 col-md-6 col-sm-12 mb-4 d-flex justify-content-center"
@@ -54,15 +56,24 @@
         <div class="bike-info">
           <h3>{{ bike.bikeName }}</h3>
           <p class="text-muted">{{ bike.brand }} - {{ bike.model }} ({{ bike.cc }}cc)</p>
-          <h4 class="text-danger">₹{{ bike.price | number }}</h4>
+          <h4 class="text-danger">₹{{ bike.price | number }}</h4> 
         </div>
       </div>
     </div>
   </div>
+</div>
+
+<ng-template #noBikes>
+  <div class="text-center my-5">
+     <img src="/Images/dog.jpeg"  style="height: 600px;">
+    <h4 class="text-danger">No bikes found for "{{ searchterm }}"</h4>
+  </div>
+</ng-template>
+
+
+
+
   
-
-
-
   <!-- Pagination Controls -->
   <nav *ngIf="totalPages > 1" aria-label="Page navigation" class="mt-4 text-center">
     <ul class="pagination justify-content-center">
@@ -80,5 +91,5 @@
       </li>
     </ul>
   </nav>
-</div>
+
 

@@ -10,6 +10,7 @@ import { Routes } from '@angular/router';
 import { response } from 'express';
 import { AuthServicesService } from '../LoginService/auth-services.service';
 import { FirstloginComponent } from '../firstlogin/firstlogin.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -94,7 +95,7 @@ constructor(
     private auth: AuthServicesService,
     private router: Router,
     private fb: FormBuilder,
-  // private toastr: ToastrService
+   private toastr: ToastrService
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -104,7 +105,7 @@ constructor(
     onLogin() {
     if (this.loginForm.invalid) {
       this.errorMessage = 'Please enter valid Email and Password';
-    //  this.toastr.error(this.errorMessage, 'Validation Error');
+     this.toastr.error(this.errorMessage, 'Validation Error');
       return;
     }
      const loginData = this.loginForm.value;
@@ -112,7 +113,7 @@ constructor(
       next: (res: any) => {
         const token = res.token;
         this.auth.saveToken(token);
-      //  this.toastr.success('Login successful!', 'Success');
+       this.toastr.success('Login successful!', 'Success');
       if(res.user){
         localStorage.setItem('userProfile',JSON.stringify(res.user)) ; 
       }
@@ -122,12 +123,12 @@ constructor(
         } else if (role === 'User') {
           this.router.navigate(['/']);
         } else {
-       //   this.toastr.warning('Unknown Role', 'Warning');
-        alert("Unknown role. Contact admin.");
+         this.toastr.warning('Unknown Role', 'Warning');
+       // alert("Unknown role. Contact admin.");
         }
       },
        error: err => {
-        alert('Invalid Email or Password');
+        this.toastr.warning('Invalid Email or Password');
         console.error(err);
       }
     }); 

@@ -11,6 +11,7 @@ import { RouterLink } from '@angular/router';
 import { error } from 'node:console';
 import { __await } from 'tslib';
 import { userInfo } from 'node:os';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -27,7 +28,8 @@ export class SingUpComponent {
         email:'',
         phone_no:'',
   }   
- constructor(private accessservice:UserDetailsService){}
+ constructor(private accessservice:UserDetailsService, private toastr: ToastrService
+  ){}
 
 
 
@@ -35,7 +37,7 @@ export class SingUpComponent {
   
     this.accessservice.UserRegister(this.Users).subscribe(response=>{
       console.log(response);
-       alert('Please wait for Admin Approval');
+       this.toastr.info('Please wait for Admin Approval');
    
       
     },error=>{

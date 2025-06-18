@@ -5,6 +5,20 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.back-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  margin-right: 90%;
+}
+
+.back-button:hover {
+  background-color: #5a6268; 
+  color: #fff;
+}
+
+
 
 .bike-card {
   background: linear-gradient(145deg, #f4f7fa, #ffffff);
