@@ -1,0 +1,14 @@
+.card {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.img-fluid {
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.list-group-item {
+  padding: 1rem;
+  font-size: 1.1rem;
+}

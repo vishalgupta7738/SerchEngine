@@ -28,9 +28,9 @@ export class UserDetailsService {
 
 
   ChangeConfirmUserStatuse(UserChangeStatus:{})
-{
+  {
   return this.Http.put('https://localhost:7183/api/Email',UserChangeStatus);
-}
+  }
 
 UserRegister(userdata={})
 {

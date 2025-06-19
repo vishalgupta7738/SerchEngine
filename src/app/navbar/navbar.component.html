@@ -1,75 +1,94 @@
-<!-- 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow py-3">
-  <div class="container-fluid">
 
-    <a class="navbar-brand d-flex align-items-center" href="#">
-      <img src="\Images\logoBike.png" alt="Logo" height="50" width="50" class="me-2" />
-      <strong>ＳｕｐｅｒＢｉｋｅ</strong>
-    </a> 
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="mainNavbar">
-
-      <div class="mx-auto my-3 my-lg-0 d-flex justify-content-center search-container">
-        <input type="text" class="form-control search-input" placeholder="Search" [(ngModel)]="searchTerm" />
-        <button (click)="searchBike()">🔎 Search</button>
-      </div>
-
-      <ul class="navbar-nav ms-auto d-flex flex-column flex-lg-row align-items-center gap-2 gap-lg-3 mt-3 mt-lg-0">
-        <li class="nav-item">
-          <a routerLink="/SingUp" class="btn btn-primary">🤝 SignUp</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/Login" class="btn btn-primary">🔒 Login</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/profile" class="btn btn-primary">🕵️‍♂️ User Profile</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/searchHistory" class="btn btn-primary">🧑‍💻User Search History</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>                      -->
-
-<ng-container *ngIf="userRole !== 'Admin'">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow py-3">
+ <ng-container *ngIf="userRole !== 'Admin'">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow py-2 py-lg-3">
     <div class="container-fluid">
       <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="/Images/logoBike.png" alt="Logo" height="50" width="50" class="me-2" />
-        <strong>ＳｕｐｅｒＢｉｋｅ</strong>
-      </a>
+        <img src="/Images/logoBike.png" alt="Logo" height="40" width="40" class="me-2" />
+        <span class="d-none d-sm-inline">ＳｕｐｅｒＢｉｋｅ</span>
+      </a> 
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-        <span class="navbar-toggler-icon"></span>
+      <!-- Mobile toggle and search button -->
+       <div class="d-flex d-lg-none order-lg-1">
+        <button class="btn btn-outline-light me-2 search-btn" (click)="toggleMobileSearch()">
+          <i class="bi bi-search"></i>
+        </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <!-- Desktop search -->
+       <div class="d-none d-lg-flex mx-lg-auto flex-grow-1 flex-lg-grow-0 search-container order-lg-0">
+        <input type="text" class="form-control search-input" placeholder="Search bikes..." [(ngModel)]="searchTerm" />
+        <button class="btn btn-outline-light ms-2" (click)="searchBike()">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+       <div class="d-none d-lg-flex ms-2 order-lg-1">
+      <button class="btn btn-outline-light compare-btn" (click)="handleCompareClick()">
+        <i class="bi bi-compass"></i>
+        <span class="d-none d-lg-inline">Compare</span>
       </button>
+    </div>
 
-      <div class="collapse navbar-collapse" id="mainNavbar">
-        <ul class="navbar-nav ms-auto d-flex flex-column flex-lg-row align-items-center gap-2 gap-lg-3 mt-3 mt-lg-0">
-          <div class="mx-auto my-3 my-lg-0 d-flex justify-content-center search-container">
-            <input type="text" class="form-control search-input" placeholder="Search" [(ngModel)]="searchTerm" />
-            <button class="btn btn-outline-light ms-2" (click)="searchBike()">🔎 Search</button>
+      <div class="collapse navbar-collapse order-lg-2" id="mainNavbar"> 
+        <!-- Mobile search (shown when toggled) -->
+        <div class="d-lg-none mobile-search-container" *ngIf="showMobileSearch">
+          <div class="search-container my-3">
+            <input type="text" class="form-control search-input" placeholder="Search bikes..." [(ngModel)]="searchTerm" />
+            <button class="btn btn-outline-light ms-2" (click)="searchBike()">
+              <i class="bi bi-search"></i> Search
+            </button>
           </div>
+        </div> <div class="d-lg-none">
+      <button class="btn btn-outline-light w-100 my-2" (click)="handleCompareClick()">
+        <i class="bi bi-compass me-2"></i> Compare Bikes
+      </button>
+    </div>
 
+        <ul class="navbar-nav ms-auto d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center gap-2 gap-lg-3"> 
           <!-- Guest -->
-          <ng-container *ngIf="!isLoggedIn">
-            <li class="nav-item"><a routerLink="/SingUp" class="btn btn-primary">🤝 SignUp</a></li>
-            <li class="nav-item"><a routerLink="/Login" class="btn btn-primary">🔒 Login</a></li>
+           <ng-container *ngIf="!isLoggedIn">
+            <li class="nav-item">
+              <a routerLink="/SingUp" class="btn btn-primary nav-btn">
+                <i class="bi bi-person-plus d-lg-none"></i>
+                <span class="d-none d-lg-inline">🤝</span> SignUp
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/Login" class="btn btn-primary nav-btn">
+                <i class="bi bi-box-arrow-in-right d-lg-none"></i>
+                <span class="d-none d-lg-inline">🔒</span> Login
+              </a>
+            </li>
           </ng-container>
 
           <!-- User -->
-          <ng-container *ngIf="isLoggedIn && userRole === 'User'">
-            <li class="nav-item"><a routerLink="/profile" class="btn btn-primary">🧑 Profile</a></li>
-            <li class="nav-item"><a routerLink="/searchHistory" class="btn btn-primary">📜 History</a></li>
-            <li class="nav-item"><a (click)="logout()" class="btn btn-danger">🚪 Logout</a></li>
-          </ng-container>
-
+         <ng-container *ngIf="isLoggedIn && userRole === 'User'">
+            <li class="nav-item">
+              <a routerLink="/profile" class="btn btn-primary nav-btn">
+                <i class="bi bi-person d-lg-none"></i>
+                <span class="d-none d-lg-inline">🧑</span> Profile
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/searchHistory" class="btn btn-primary nav-btn">
+                <i class="bi bi-clock-history d-lg-none"></i>
+                <span class="d-none d-lg-inline">📜</span> History
+              </a>
+            </li>
+            <li class="nav-item">
+              <a (click)="logout()" class="btn btn-danger nav-btn">
+                <i class="bi bi-box-arrow-left d-lg-none"></i>
+                <span class="d-none d-lg-inline">🚪</span> Logout
+              </a>
+            </li>
+          </ng-container> 
         </ul>
       </div>
     </div>
   </nav>
-</ng-container>
+</ng-container>  
+ 
+

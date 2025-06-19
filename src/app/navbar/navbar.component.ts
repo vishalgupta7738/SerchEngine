@@ -31,6 +31,7 @@ export class NavbarComponent  implements OnInit {
     if (this.isLoggedIn && this.userRole === 'Admin' && this.route.url !== '/Admin') {
   this.route.navigate(['/Admin']);
    }
+   
     // On login/logout
     this.authService.loginStatus$.subscribe(status => {
       this.isLoggedIn = status;
@@ -44,12 +45,32 @@ export class NavbarComponent  implements OnInit {
 
      this.route.navigate(['/']);
   }
+
+
+  // Add this method to your NavbarComponent class
+handleCompareClick(): void {
+  if (!this.isLoggedIn) {
+    // Show alert for guest users
+   // alert('Please login first to use the compare feature');
+    this.toastr.warning('Please login first to use the compare feature', 'Login Required');
+    this.route.navigate(['/Login']);
+  } else {
+    // Navigate to compare page for logged-in users
+    this.route.navigate(['/Compare']);
+  }
+}
   // Vishal  ji kaa code niche kaa 
   
   searchTerm='';
    valid=false;
   condition=true;
 
+  // mantu code 
+  showMobileSearch: boolean = false;
+
+toggleMobileSearch() {
+  this.showMobileSearch = !this.showMobileSearch;
+}
   searchBike() : void
   {
     if(this.searchTerm=='')

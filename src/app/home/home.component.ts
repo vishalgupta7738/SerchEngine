@@ -77,10 +77,11 @@ import { SearchService } from '../search.service';
 import { Console } from 'console';
 import { response } from 'express';
 import { CommonModule } from '@angular/common';
+import { CompareComponent } from '../compare/compare.component';
 
 @Component({
   selector: 'app-home',
-  imports: [TrendingBikeComponent, FooterComponent, BrandComponent ,FormsModule,ClickSearchComponent, CommonModule,ReactiveFormsModule ],
+  imports: [TrendingBikeComponent, FooterComponent, BrandComponent ,FormsModule,ClickSearchComponent, CommonModule,ReactiveFormsModule,CompareComponent ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -164,7 +165,10 @@ this.bikes = bikeList;
       }
     })
   }
-
+ 
+  viewBikeDetails(bikeId: number): void {
+  this.route.navigate(['/bike-details', bikeId]);
+}
   extractFilterOptions() : void{
     this.brands = [...new Set(this.bikes.map(bike => bike.brand))];
     this.prices = [...new Set(this.bikes.map(bike => Math.floor(bike.price / 10000) * 10000))].sort((a, b) => a - b);

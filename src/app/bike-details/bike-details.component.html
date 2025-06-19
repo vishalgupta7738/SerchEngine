@@ -1,0 +1,98 @@
+<!-- <div class="container my-5">
+  <div *ngIf="isLoading" class="text-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div *ngIf="!isLoading && bike" class="card shadow">
+    <div class="row g-0">
+      <div class="col-md-6">
+        <img [src]="bike.imageUrl" 
+             alt="{{ bike.bikeName }}" 
+             class="img-fluid rounded-start h-100 w-100 object-fit-cover">
+      </div>
+      <div class="col-md-6">
+        <div class="card-body p-4">
+          <h2 class="card-title">{{bike.bikeName}}</h2>
+          <h4 class="card-subtitle mb-3 text-muted">{{bike.brand}} - {{bike.model}}</h4>
+          
+          <div class="card-text mb-4">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>Engine Capacity:</strong> {{bike.cc}} cc</li>
+              <li class="list-group-item"><strong>Manufacturing Year:</strong> {{bike.year}}</li>
+              <li class="list-group-item"><strong>Price:</strong> ₹{{bike.price | number}}</li>
+              
+            </ul>
+          </div>
+          
+          <button class="btn btn-primary" routerLink="/">Back to Home</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!isLoading && !bike" class="alert alert-danger text-center">
+    Bike details not found
+  </div>
+</div> -->
+<div class="container my-5">
+  <!-- Loading spinner -->
+  <div *ngIf="isLoading" class="text-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Bike details -->
+  <div *ngIf="!isLoading && bike" class="card shadow">
+    <div class="row g-0">
+      <!-- Image column -->
+      <div class="col-md-6">
+        <div class="image-container" [ngClass]="{'bg-light': imageError}">
+          <img [src]="bike.imageUrl" 
+               [alt]="bike.bikeName"
+               class="img-fluid h-100 w-100 object-fit-cover"
+               (error)="handleImageError()"
+               *ngIf="!imageError">
+          
+          <div class="no-image-placeholder" *ngIf="imageError">
+            <i class="bi bi-image text-muted"></i>
+            <p>Image not available</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Details column -->
+      <div class="col-md-6">
+        <div class="card-body p-4">
+          <h2 class="card-title">{{bike.bikeName}}</h2>
+          <h4 class="card-subtitle mb-3 text-muted">{{bike.brand}} - {{bike.model}}</h4>
+          
+          <div class="card-text mb-4">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <strong>Engine Capacity:</strong> {{bike.cc}} cc
+              </li>
+              <li class="list-group-item">
+                <strong>Year:</strong> {{bike.year}}
+              </li>
+              <li class="list-group-item">
+                <strong>Price:</strong> ₹{{bike.price | number}}
+              </li>
+            </ul>
+          </div>
+
+          <button class="btn btn-primary" routerLink="/BackBtn" >
+            <i class="bi bi-arrow-left"></i> Back to Home
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error message -->
+  <div *ngIf="!isLoading && !bike" class="alert alert-danger text-center">
+    Bike details not found
+  </div>
+</div>

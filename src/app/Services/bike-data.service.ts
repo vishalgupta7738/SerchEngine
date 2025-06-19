@@ -81,7 +81,7 @@ getImageByKeyword(keyword: string): Observable<any> {
  
   price: number;
   year: number;
- imageBase64: string;
+ imageBase64?: string;
  imageUrl?: string; 
 }
   

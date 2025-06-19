@@ -32,7 +32,6 @@ export class SingUpComponent {
   ){}
 
 
-
   ClickSingUp(){
   
     this.accessservice.UserRegister(this.Users).subscribe(response=>{
@@ -48,6 +47,6 @@ export class SingUpComponent {
     
     
   ); 
-  }
+  }  
 
 }

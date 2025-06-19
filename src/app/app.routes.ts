@@ -19,6 +19,8 @@ import { ReportGenerateComponentComponent } from './report-generate-component/re
 import { UserSearchHistoryComponent } from './user-search-history/user-search-history.component';
 import { SeeAllHistoryComponent } from './see-all-history/see-all-history.component';
 import { OperationButtonComponent } from './operation-button/operation-button.component';
+import { BikeDetailsComponent } from './bike-details/bike-details.component';
+import { CompareComponent } from './compare/compare.component';
 
 
 export const routes: Routes = [
@@ -65,9 +67,9 @@ export const routes: Routes = [
     {path : 'Homehistrory' , component:HomeComponent},
     {path : 'AddBikes' , component:BikeCrudComponent},
     {path : 'AllBikes' , component:OperationButtonComponent},
-    {path : 'BackBtn' , component:HomeComponent}
-      
-   
+    {path : 'BackBtn' , component:HomeComponent},
+       { path: 'bike-details/:id', component: BikeDetailsComponent },
+   { path: 'Compare', component: CompareComponent },
 
     
 ];

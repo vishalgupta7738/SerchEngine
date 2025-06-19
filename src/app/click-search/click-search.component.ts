@@ -88,7 +88,7 @@ export class ClickSearchComponent implements OnInit {
   constructor(
     private bikeService: BikeDataService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,http:HttpClient
   ) {}
 
   ngOnInit(): void {
@@ -154,7 +154,9 @@ export class ClickSearchComponent implements OnInit {
       }
     });
   }
-
+  viewBikeDetails(bikeId: number): void {
+  this.router.navigate(['/bike-details', bikeId]);
+}
   updatePaginatedBikes(): void {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
