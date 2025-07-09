@@ -14,54 +14,7 @@ import { HttpClient } from '@angular/common/http';
   providers:[BikeDataService,HttpClient,Input]
 })
 export class ClickSearchComponent implements OnInit {
-// {
 
-
-//    searchterm: string = '';
-//   bikes: Bike[] = [];
-//   filteredBikes: Bike[] = [];
-//   isLoading: boolean = false;
-//   errorMessage: string = '';
-
-//    constructor(
-//     private bikeService: BikeDataService,
-//     private route: ActivatedRoute,
-//     private router: Router
-//   ) {}
-//   ngOnInit(): void {
-//     this.route.queryParams.subscribe(params => {
-//       this.searchterm = params['query'] || '';
-//       if (this.searchterm) {
-//         this.performSearch();
-//         console.log("Search term: ", this.searchterm);
-
-//       }
-//     });
-//   }
-//    performSearch(): void {
-//     this.isLoading = true;
-//     this.errorMessage = '';
-    
-
-//     this.bikeService.bikesearch(this.searchterm).subscribe({
-//       next: (response) => {
-//         this.filteredBikes = response.map(bike => ({
-//           ...bike,
-//           imageUrl: 'data:image/png;base64,' + bike.imageBase64
-//         }));
-//         this.bikes = this.filteredBikes; 
-//         this.bikes = response
-//         console.log('Filtered bikes:', this.filteredBikes);
-
-//         this.isLoading = false;
-//       },
-//       error: (error) => {
-//         this.errorMessage = 'Failed to load search results';
-//         this.isLoading = false;
-//         console.error('Search error:', error);
-//       }
-//     });
-//   }
 
 
 

@@ -15,12 +15,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
 export class OperationButtonComponent implements OnInit{
 
   page : number = 1 ; // current page 
-   itemsPerPage: number = 8;
+  itemsPerPage: number = 8;
 
 bikes:any[] = [];
 bikedata:any={}
 Condition:boolean=false;
- bikeobj={
+ bikeobj : any={
     bikeId:'',
   bikeName:'',
   model:'',

@@ -1,6 +1,5 @@
 
-
- <ng-container *ngIf="userRole !== 'Admin'">
+<ng-container *ngIf="userRole !== 'Admin'">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow py-2 py-lg-3">
     <div class="container-fluid">
       <a class="navbar-brand d-flex align-items-center" href="#">
@@ -8,7 +7,6 @@
         <span class="d-none d-sm-inline">ＳｕｐｅｒＢｉｋｅ</span>
       </a> 
 
-      <!-- Mobile toggle and search button -->
        <div class="d-flex d-lg-none order-lg-1">
         <button class="btn btn-outline-light me-2 search-btn" (click)="toggleMobileSearch()">
           <i class="bi bi-search"></i>
@@ -18,9 +16,9 @@
         </button>
       </div>
 
-      <!-- Desktop search -->
+      
        <div class="d-none d-lg-flex mx-lg-auto flex-grow-1 flex-lg-grow-0 search-container order-lg-0">
-        <input type="text" class="form-control search-input" placeholder="Search bikes..." [(ngModel)]="searchTerm" />
+        <input type="text" class="form-control search-input" placeholder="Search bikes..." [(ngModel)]="searchTerm" maxlength="20"/>
         <button class="btn btn-outline-light ms-2" (click)="searchBike()">
           <i class="bi bi-search"></i>
         </button>
@@ -33,7 +31,7 @@
     </div>
 
       <div class="collapse navbar-collapse order-lg-2" id="mainNavbar"> 
-        <!-- Mobile search (shown when toggled) -->
+       
         <div class="d-lg-none mobile-search-container" *ngIf="showMobileSearch">
           <div class="search-container my-3">
             <input type="text" class="form-control search-input" placeholder="Search bikes..." [(ngModel)]="searchTerm" />
@@ -52,14 +50,15 @@
            <ng-container *ngIf="!isLoggedIn">
             <li class="nav-item">
               <a routerLink="/SingUp" class="btn btn-primary nav-btn">
-                <i class="bi bi-person-plus d-lg-none"></i>
-                <span class="d-none d-lg-inline">🤝</span> SignUp
+                <!-- <i class="bi bi-person-plus d-lg-none"></i> -->
+                 <i class="bi bi-person-plus"></i>SignUp
+                <!-- <span class="d-none d-lg-inline">🤝</span> SignUp -->
               </a>
             </li>
             <li class="nav-item">
               <a routerLink="/Login" class="btn btn-primary nav-btn">
-                <i class="bi bi-box-arrow-in-right d-lg-none"></i>
-                <span class="d-none d-lg-inline">🔒</span> Login
+                <i class="bi bi-box-arrow-in-right "></i>Login
+                <!-- <span class="d-none d-lg-inline">🔒</span> Login -->
               </a>
             </li>
           </ng-container>
@@ -68,20 +67,20 @@
          <ng-container *ngIf="isLoggedIn && userRole === 'User'">
             <li class="nav-item">
               <a routerLink="/profile" class="btn btn-primary nav-btn">
-                <i class="bi bi-person d-lg-none"></i>
-                <span class="d-none d-lg-inline">🧑</span> Profile
+                <i class="bi bi-person "></i>Profile
+                <!-- <span class="d-none d-lg-inline">🧑</span> Profile -->
               </a>
             </li>
             <li class="nav-item">
               <a routerLink="/searchHistory" class="btn btn-primary nav-btn">
-                <i class="bi bi-clock-history d-lg-none"></i>
-                <span class="d-none d-lg-inline">📜</span> History
+                 <i class="bi bi-clock-history "></i> History
+                <!-- <span class="d-none d-lg-inline">📜</span>  -->
               </a>
             </li>
             <li class="nav-item">
               <a (click)="logout()" class="btn btn-danger nav-btn">
-                <i class="bi bi-box-arrow-left d-lg-none"></i>
-                <span class="d-none d-lg-inline">🚪</span> Logout
+                 <i class="bi bi-box-arrow-left"></i> Logout
+                <!-- <span class="d-none d-lg-inline">🚪</span>  -->
               </a>
             </li>
           </ng-container> 

@@ -1,3 +1,4 @@
+/* Global Styles */
 body {
   margin: 0;
   padding: 0;
@@ -6,16 +7,18 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
+  display: fixed;
+  /* display: flex; */
   justify-content: center;
+  align-items: center;
   font-family: sans-serif;
+  /* flex-direction: column; */
 }
 
+/* Home Button */
 .singupHome {
- position: fixed; 
- width: 100px;
-  top: 110px;
+  position: absolute;
+  top: 30px;
   right: 20px;
   background-color: green;
   color: white;
@@ -26,21 +29,28 @@ body {
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease;
+  margin-top: 66px;
+  
 }
 
-.loginHome:hover {
+.singupHome:hover {
   background-color: #0056b3;
 }
 
-
-
+/* Signup Form Container */
 .signup-container {
   width: 90%;
   max-width: 400px;
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  padding: 25px;
+  border: 2px solid black;
+  border-radius: 20px;
+  background-color: beige;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  margin-left: 40%;
+  text-align: left;
+
+ 
 }
 
 .signup-container h2 {
@@ -48,6 +58,7 @@ body {
   margin-bottom: 20px;
 }
 
+/* Form Inputs */
 .form-group {
   margin-bottom: 15px;
 }
@@ -66,7 +77,8 @@ input {
   box-sizing: border-box;
 }
 
-button {
+/* Submit Button */
+button[type="submit"] {
   width: 100%;
   padding: 12px;
   font-size: 16px;
@@ -78,14 +90,32 @@ button {
   transition: 0.3s;
 }
 
-button:hover {
+button[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-.error {
+/* Error Text */
+.error, .text-danger {
   color: red;
   font-size: 13px;
   margin-top: 5px;
 }
 
+/* Responsive Tweaks */
+@media screen and (max-width:800px ) {
+  .signup-container {
+    padding: 20px;
+    border-radius: 15px;
+    background-color: aquamarine;
+    margin-left: 20%;
+   
+  }
+
+  .singupHome {
+    top: 10px;
+    right: 10px;
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+}
 

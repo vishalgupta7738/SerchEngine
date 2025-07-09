@@ -18,9 +18,7 @@ Bikes : any[] = [];
 constructor(private bikeService : BikeDataService){}
   
 ngOnInit(){
-  // this.bikeService.getAllBikes().subscribe({
-  //   next: data => this.Bikes = data,
-    // error: err => console.error(err)
+  
    this.bikeService.getAllBikes().subscribe({
       next: data => {
         console.log("Data from API : " , data);

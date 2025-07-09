@@ -20,15 +20,7 @@ export class UserDetailsManagmentComponent {
 condition:boolean=false;
   users: any[] = [];
 userdata:any={}
-// {
-//   "userId": 0,
-//   "username": "string",
-//   "email": "string",
-//   "password": "string",
-//   "phone_no": 0,
-//   "registerdate": "2025-06-17T05:35:24.700Z",
-//   "isconfirm": "string"
-// }
+
 senduserdetails={
   userId:0,
   username:'',

@@ -17,6 +17,7 @@ h2.text-primary {
   border-bottom: 2px solid #007bff;
   display: inline-block;
   padding-bottom: 5px;
+
 }
 
 /* Table Styling */
@@ -53,5 +54,10 @@ h2.text-primary {
 
   h2.text-primary {
     font-size: 1.25rem;
+   
   }
+}
+.text-center {
+  text-align: center;
+  color: #007bff;
 }

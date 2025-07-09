@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -95,21 +95,23 @@ toggleMobileSearch() {
          
         if(userProfile){
           const user = JSON.parse(userProfile); 
+         console.log(user.email);
+       
           const userId = user.userId; 
           const userconfirm=user.isconfirm;
-          console.log("Hello");
           if(userId && userconfirm=='APPROVED'){
-            this.searchService.saveSearch(this.searchTerm, userId).subscribe(); 
-             console.log("Hello");
+            this.searchService.saveSearch(this.searchTerm, userId,user.email).subscribe();  
           } 
                  this.route.navigate(['/Search'], {
       queryParams: { query: this.searchTerm }
+    
   });
-  
+
   }
        this.route.navigate(['/Search'], {
       queryParams: { query: this.searchTerm }
   });
+    this.searchTerm='';
   console.log(this.searchTerm);
 }
 }

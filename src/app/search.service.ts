@@ -19,22 +19,22 @@ getUsersHistory()
   return this.http.get('https://localhost:7183/api/Search/AllUserHistory');
 }
 
-saveSearch(searchTerm:string, userId?: number): Observable<any> {
+saveSearch(searchTerm:string, userId?: number,Useremail?:string): Observable<any> {
  
   const history : SearchHistory = {
-    searchId : 0,
+    searchId : 0, 
     searchDesc : searchTerm,
     userId : userId,
-    searchDate : new Date()
-
+    searchDate : new Date(),
+    useremail: Useremail
  } ; 
  // return this.http.post(`${this.apiUrl}/save-search`,history );
- return this.http.post('https://localhost:7183/api/Search/save-search',history);
+ return this.http.post('https://localhost:7183/api/Search/save-search', history);
  // return this.http.post(`${this.apiUrl}/save-search`,history);
 }
 searchBike(bikename:string)
 {
-  return this.http.get('https://localhost:7183/api/Bike/search?query='+bikename);
+  return this.http.get('https://localhost:7183/api/Bike/search?query=' + bikename);
 }
 
 deleteSearchHistory(ids: number[]) {
@@ -56,4 +56,5 @@ export interface SearchHistory {
   userId?: number;
   searchDate: Date;
   selected?: boolean; 
+  useremail?: string; // Optional field for email
 }

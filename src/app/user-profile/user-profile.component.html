@@ -1,8 +1,52 @@
 <body>
   <div class="profile-container" *ngIf="userDetails">
-    <h2>User Profile</h2>
+    <img src="/Images/profile.png" alt="Profile Image" class="profile-img" />
 
-    <div class="profile-details">
+    <!-- Edit Mode -->
+    <form *ngIf="isEditMode" (ngSubmit)="saveProfile()">
+      <div class="profile-details">
+        <div class="detail-row">
+          <span class="detail-label">Username:</span>
+          <input
+            class="form-control"
+            [(ngModel)]="editableUser.username"
+            name="username"
+            required
+          />
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Email:</span>
+          <input
+            class="form-control"
+            [(ngModel)]="editableUser.email"
+            name="email"
+            disabled
+          />
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Phone Number:</span>
+          <input
+            class="form-control"
+            [(ngModel)]="editableUser.phone_no"
+            name="phone_no"
+            required
+          />
+        </div>
+
+        <div class="text-center mt-3">
+          <button type="submit" class="btn btn-success">Save</button>
+          <button type="button" class="btn btn-secondary" (click)="isEditMode = false">
+            Cancel
+          </button>
+            <!-- <button type="button" class="btn btn-secondary ms-2" (click)="CancelEditmode(userDetails.username )">
+            Cancel
+          </button>  -->
+        </div>
+      </div>
+    </form>
+
+    <!-- View Mode -->
+    <div class="profile-details" *ngIf="!isEditMode">
       <div class="detail-row">
         <span class="detail-label">Username:</span>
         <span class="detail-value">{{ userDetails.username }}</span>
@@ -15,24 +59,14 @@
         <span class="detail-label">Phone Number:</span>
         <span class="detail-value">{{ userDetails.phone_no }}</span>
       </div>
-      <div class="detail-row">
-        <span class="detail-label">Registration Date:</span>
-        <span class="detail-value">{{ userDetails.registerdate | date: 'dd MMM yyyy' }}</span>
+     
+
+      <div class="text-center mt-3">
+        <button class="btn btn-primary" (click)="enableEdit()">Edit Profile</button>
       </div>
-      <!-- <div class="detail-row">
-        <span class="detail-label">Account Status:</span>
-        <span
-          class="detail-value status"
-          [ngClass]="{ active: userDetails.Isconfirm, inactive: !userDetails.Isconfirm }"
-        >
-          {{ userDetails.isconfirm ? 'Confirmed' : 'Not Confirmed' }}
-        </span>
-      </div> -->
     </div>
 
-    <!-- <button (click)="logout()" class="logout">Logout</button>
-    <br> -->
-    <button routerLink="/UserHome">Home</button>
+    <button (click)="logout()" class="logout">Logout</button>
   </div>
 
   <div *ngIf="!userDetails" class="loading">

@@ -74,6 +74,7 @@ private userRoleSubject = new BehaviorSubject<string | null>(null);
     if (typeof window !== 'undefined') {
       localStorage.removeItem(this.tokenKey);
       localStorage.removeItem(this.roleKey);
+      localStorage.removeItem('userProfile');
     }
     this.loginStatus.next(false);
     this.userRoleSubject.next(null);

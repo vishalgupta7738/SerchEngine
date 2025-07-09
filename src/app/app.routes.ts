@@ -68,8 +68,9 @@ export const routes: Routes = [
     {path : 'AddBikes' , component:BikeCrudComponent},
     {path : 'AllBikes' , component:OperationButtonComponent},
     {path : 'BackBtn' , component:HomeComponent},
-       { path: 'bike-details/:id', component: BikeDetailsComponent },
-   { path: 'Compare', component: CompareComponent },
+    {path: 'singupHome', component: HomeComponent},
+    { path: 'bike-details/:id', component: BikeDetailsComponent },
+    { path: 'Compare', component: CompareComponent  ,canActivate: [AuthGuard], data: { expectedRole: 'User' }},
 
     
 ];

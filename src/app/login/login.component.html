@@ -1,66 +1,15 @@
 <!-- 
-
-
-
-  <body>
-    <div>
-<button class="loginHome" routerLink="/HomePage">🏠 Home</button>
-    </div>
-
-  <div id="divId">
-    
-    <h2>Login</h2>
-
-  
-    <form #loginForm="ngForm" (ngSubmit)="LoginSubmit()">
-      <div class="email">
-        <label for="EmailId"><b>EmailId :</b></label>
-        <input
-          id="EmailId"
-          type="email"
-          name="email"
-          [(ngModel)]="credentials.email"
-          required
-          email
-        />
-        <div
-          *ngIf="loginForm.submitted && !loginForm.controls['email']?.valid"
-          class="error"
-        >
-          Valid email is required.
-        </div>
-      </div>
-
-      <div class="pwd" style="margin-top: 20px;">
-        <label for="pwd"><b>Password :</b></label>
-        <input
-          type="password"
-          id="pwd"
-          name="password"
-          [(ngModel)]="credentials.password"
-          required
-          minlength="6"
-        />
-        <div
-          *ngIf="loginForm.submitted && !loginForm.controls['password']?.valid"
-          class="error"
-        >
-          Password is required (min 6 characters).
-        </div>
-      </div>
-
-      <button type="submit" class="sub">Login</button>
-    </form>
-  </div>
-</body> -->
-
-
-
- <body>
-  <div id="divId">
-    <h2>Login</h2>
-<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-  <div class="email">
+<!-- mantu Code -->
+<body>
+<div class="container-fluid p-0">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+      <div id="divId" class="p-4">
+        <!-- <h2 class="text-center mb-4">Login</h2> -->
+         <img src="/Images/loginMantu.jpg" height="70px" style="align-items: center; margin-left: 10px;"/>
+          <br><br>
+         <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+  <div class="email" style="margin-top: 5px;">
   <input formControlName="email" placeholder="Email" />
   <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger">
     Valid email is required.
@@ -75,6 +24,9 @@
   <button class="sub" type="submit">Login</button>
 
   <p *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</p>
-</form></div>
-
-</body>
+</form>
+  </div>
+    </div>
+  </div>
+</div>
+</body> 

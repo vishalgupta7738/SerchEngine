@@ -56,7 +56,5 @@ ngOnInit():any
     )
 }
  
-
- 
 }
   

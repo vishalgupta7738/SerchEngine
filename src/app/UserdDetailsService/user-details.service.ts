@@ -22,12 +22,7 @@ export class UserDetailsService {
   }
 
 
-
-
-
-
-
-  ChangeConfirmUserStatuse(UserChangeStatus:{})
+  ChangeConfirmUserStatuse(UserChangeStatus:any={})
   {
   return this.Http.put('https://localhost:7183/api/Email',UserChangeStatus);
   }

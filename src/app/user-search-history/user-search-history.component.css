@@ -59,7 +59,7 @@ button {
 }
 
 .HistoryHome {
- position: fixed; 
+ /* position: fixed;  */
  width: 100px;
   top: 110px;
   right: 20px;

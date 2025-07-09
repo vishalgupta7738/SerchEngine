@@ -20,6 +20,7 @@
 
 .bike-card {
   background-color: #ffffff;
+  text-decoration: none;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -89,5 +90,17 @@
   .bike-card img {
     height: 180px;
   }
+}
+
+.bike-card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.bike-card a:hover,
+.bike-card a:focus,
+.bike-card a:visited {
+  text-decoration: none;
 }
 

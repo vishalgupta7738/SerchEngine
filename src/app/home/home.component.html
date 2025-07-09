@@ -1,6 +1,4 @@
-
-<!-- Mantu Code worki properly  -->
- <div class="container-fluid p-0 video-background my-2">
+<div class="container-fluid p-0 video-background my-2">
   <video autoplay muted loop playsinline>
     <source src="Video/bikevide.mp4" type="video/mp4" />
     Your browser does not support the video tag.
@@ -14,7 +12,9 @@
              class="form-control w-100 w-md-auto"
              placeholder="Search Super Bikes..."
              style="max-width: 450px; padding: 14px; border-radius: 8px;"
-             [(ngModel)]="searchTerm" />
+             [(ngModel)]="searchTerm" 
+             maxlength="20"
+             (keyup.enter)="searchBike()"/>
 
       <button (click)="searchBike()"
               class="btn btn-primary px-4 py-2">
@@ -23,113 +23,106 @@
     </div>
   </div>
 </div>
-<br/>
 
-<h2 align="center">Filter by:</h2>
-<!-- Filters Card -->
 <div class="container mt-4">
+  <h2 class="mb-4 fw-bold">Filter Bikes</h2>
+  
+  <!-- Filter Card -->
   <div class="card mb-4 shadow-sm">
     <div class="card-body">
-      <div class="row g-3">
-        <!-- <div class="col-md-3">
-          <input type="text" class="form-control" placeholder="Search by name or model"
-                [(ngModel)]="searchTerm" (input)="applyFilters()">
-        </div> -->
-        <div class="col-md-2">
-          <select class="form-select" [(ngModel)]="selectedBrand" (change)="applyFilters()">
-            <option value="">All Brands</option>
-            <option *ngFor="let brand of brands" [value]="brand">{{ brand }}</option>
-          </select>
-        </div>   
-        <div class="col-md-2">
-          <select class="form-select" [(ngModel)]="selectedPrice" (change)="applyFilters()">
-            <option value="">All Prices</option>
-            <option *ngFor="let price of prices" [value]="price">
-              ₹{{price | number}} - ₹{{price + 10000 | number}}
-            </option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <select class="form-select" [(ngModel)]="selectedYear" (change)="applyFilters()">
-            <option value="">All Years</option>
-            <option *ngFor="let year of years" [value]="year">{{ year }}</option>
-          </select>
-        </div>
+      <div class="row g-3 align-items-end">
+        <!-- Model Filter -->
         <div class="col-md-3">
-          <button class="btn btn-outline-secondary" (click)="clearFilters()">Clear Filters</button>
+          <label class="form-label">Model</label>
+          <select class="form-select" [(ngModel)]="model" >
+            <option value="">All Models</option>
+            <option *ngFor="let m of modelList" [value]="m">{{ m }}</option>
+          </select>
         </div>
-      </div>
-    </div>
-  </div>
 
- 
-  <div *ngIf="isLoading" class="text-center my-5">
-    <div class="spinner-border text-primary" role="status">
-      <span class="visually-hidden">Loading...</span>
-    </div>
-  </div> 
-
-
-  <div *ngIf="!isLoading">
-    <div *ngIf="filteredBikes.length === 0" class="alert alert-warning text-center">
-      No bikes found matching your criteria
-    </div>
-
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-      <div class="col" *ngFor="let bike of paginatedBikes">
-        <div class="card h-100 shadow-sm">
-          <div class="card-img-top-container" style="height: 200px; overflow: hidden;">
-            <img [src]="bike.imageUrl" 
-                 alt="{{ bike.bikeName }}" 
-                 class="img-fluid h-100 w-100 object-fit-cover"
-                 onerror="this.src='assets/no-image.png'">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">{{bike.bikeName}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{bike.brand}} - {{bike.model}}</h6>
-            <ul class="list-group list-group-flush mb-3">
-              <!-- <li class="list-group-item"><strong>CC:</strong> {{bike.cc}} cc</li>
-              <li class="list-group-item"><strong>Year:</strong> {{bike.year}}</li> -->
-               <li class="list-group-item"><strong>Price:</strong> ₹{{bike.price | number}}</li>
-            </ul>
-             <button class="btn btn-primary" (click)="viewBikeDetails(bike.bikeId)">Bike Details</button>
-          </div>
-        </div>
-      </div>
-    </div> 
-
-
-
- 
-    <nav *ngIf="totalPages > 1" aria-label="Page navigation" class="mt-4">
-      <ul class="pagination justify-content-center">
-        <li class="page-item" [class.disabled]="currentPage === 1">
-          <a class="page-link" (click)="changePage(currentPage - 1)">Previous</a>
-        </li>
-        <li *ngFor="let page of [].constructor(totalPages); let i = index"
-            class="page-item" [class.active]="currentPage === i + 1">
-          <a class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</a>
-        </li>
-        <li class="page-item" [class.disabled]="currentPage === totalPages">
-          <a class="page-link" (click)="changePage(currentPage + 1)">Next</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
+        <!-- Price Range Filter -->
+      
+<div class="col-md-3">
+          <label class="form-label">Price Range</label>
+        <select class="form-select" [(ngModel)]="selectedPriceRange">
+  <option [ngValue]="undefined">All Prices</option>
+  <option *ngFor="let range of priceRanges" [ngValue]="range">
+    ₹{{ range.minPrice }} 
+    <ng-container *ngIf="range.maxPrice !== null">- ₹{{ range.maxPrice }}</ng-container> 
+    <ng-container *ngIf="range.maxPrice === null">And Above</ng-container>
+  </option>
+</select>
 </div>
-<br>
 
+        <!-- Year Filter -->
+        <div class="col-md-3">
+          <label class="form-label">Year</label>
+          <select class="form-select" [(ngModel)]="year">
+            <option [ngValue]="undefined" >All Years</option>
+            <option *ngFor="let year of yearList" [value]="year">{{ year }}</option>
+            
+          </select>
+        </div>
 
-<!-- <app-compare></app-compare> -->
+        <!-- Filter Buttons -->
+        <div class="col-md-3 d-flex gap-2">
+          <button class="btn btn-primary flex-grow-1" (click)="loadBikes()">
+            Apply Filters
+          </button>
+          <button class="btn btn-outline-secondary" (click)="resetFilters()">
+            Clear
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Indicator -->
+ 
+  <!-- No Results Message -->
+  <div *ngIf="!isLoading && bikes().length === 0" class="alert alert-warning text-center">
+    No bikes found matching your criteria
+  </div>
+
+  <!-- Bike Cards -->
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let bike of bikes()">
+      <div class="card h-100 shadow-sm" style="height: 50px;">
+        <img *ngIf="bike.imageBase64" [src]="'data:image/png;base64,' + bike.imageBase64" class="card-img-top" />
+        <div class="card-body">
+          <h5 class="card-title">{{ bike.bikeName }}</h5>
+          <p class="card-text">Model: {{ bike.model }}</p>
+          <p class="card-text">Brand: {{ bike.brand }}</p>
+          <p class="card-text">Price: ₹{{ bike.price }}</p>
+          <p class="card-text">Year: {{ bike.year }}</p>
+          <button class="btn btn-primary" (click)="viewBikeDetails(bike.bikeId)">View Details</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Pagination -->
+ 
+  <nav class="mt-4">
+  <ul class="pagination justify-content-center">
+    <li class="page-item" [class.disabled]="pageNumber === 1">
+      <a class="page-link" (click)="prevPage()">Previous</a>
+    </li>
+
+    <li *ngFor="let page of totalPages" 
+        class="page-item" 
+        [class.active]="page === pageNumber">
+      <a class="page-link" (click)="changePage(page)">{{ page }}</a>
+    </li>
+
+    <li class="page-item" [class.disabled]="!hasNextPage">
+      <a class="page-link" (click)="nextPage()">Next</a>
+    </li>
+  </ul>
+</nav>
+
+</div>
 
 <app-brand></app-brand>
 <app-trending-bike></app-trending-bike>
 <app-footer></app-footer>
- <!-- <app-trending-bike ></app-trending-bike>
-
-
-<br>
-<app-brand ></app-brand>
-<app-footer ></app-footer> -->
-
-

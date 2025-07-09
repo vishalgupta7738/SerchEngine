@@ -1,7 +1,7 @@
+/* Base Styles */
 body {
- 
-    background-image: url('https://images.unsplash.com/photo-1617719445910-effa370eea18?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmlrZSUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D');
-    background-size: cover;
+  background-image: url('https://images.unsplash.com/photo-1617719445910-effa370eea18?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmlrZSUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D');
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
@@ -9,53 +9,57 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
-/* Container for the profile */
+/* Profile Container */
 .profile-container {
-  width: 24%;
-  height: 20%;
-  margin: 40px auto;
-  padding: 30px 20px;
+  max-width: 400px;
+  width: 100%;
   background-color: #ffffff;
   border-radius: 12px;
+  padding: 30px 20px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Profile heading */
-.profile-container h2 {
-  text-align: center;
-  margin-bottom: 25px;
-  color: #333;
+/* Profile Image */
+.profile-img {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 100px;
+  width: 100%;
+  height: auto;
 }
 
-/* Container for the details */
+/* Details Layout */
 .profile-details {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-/* Each row of detail */
 .detail-row {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #ddd;
   padding-bottom: 8px;
+  flex-wrap: wrap;
 }
 
-/* Labels and values */
+/* Labels and Values */
 .detail-label {
   font-weight: 600;
   color: #555;
+  margin-right: 10px;
 }
 
 .detail-value {
   color: #222;
+  word-break: break-word;
+  max-width: 60%;
 }
 
-/* Status color indicator */
+/* Status Styles */
 .status.active {
   color: green;
   font-weight: bold;
@@ -66,13 +70,14 @@ body {
   font-weight: bold;
 }
 
-/* Logout and Home buttons */
+/* Buttons */
 button.logout,
-button[routerLink] {
+button[routerLink],
+.btn {
   width: 100%;
   padding: 10px;
-  margin-top: 15px;
   font-size: 16px;
+  margin-top: 15px;
   background-color: #007bff;
   border: none;
   color: #fff;
@@ -82,11 +87,12 @@ button[routerLink] {
 }
 
 button.logout:hover,
-button[routerLink]:hover {
+button[routerLink]:hover,
+.btn:hover {
   background-color: green;
 }
 
-/* Loading message */
+/* Loading Message */
 .loading {
   text-align: center;
   font-size: 18px;
@@ -94,7 +100,7 @@ button[routerLink]:hover {
   color: #888;
 }
 
-/* Responsive design */
+/* Responsive Adjustments */
 @media (max-width: 600px) {
   .detail-row {
     flex-direction: column;
@@ -103,6 +109,10 @@ button[routerLink]:hover {
 
   .detail-label {
     margin-bottom: 4px;
+  }
+
+  .detail-value {
+    max-width: 100%;
   }
 
   button.logout,

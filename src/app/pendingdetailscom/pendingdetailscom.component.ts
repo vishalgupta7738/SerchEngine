@@ -16,19 +16,19 @@ export class PendingdetailscomComponent {
    constructor(private userservices : UserDetailsService){}
 StatusChangeObj:any={
   email:'',
-  isconfirm:''}
+  isconfirm:'',
+  phone_no:'',
+}
 
 
-Users:any={
+Users:any=[{
   email:'',
   isconfirm:'',
-  password:'',
-  
 phone_no:'',
 registerdate:'',
   userId:'',
 username:'',
-}
+}]
 ngOnInit(){
     this.userservices.getPendingRequest().subscribe(data=>{
       this.Users=data;
@@ -39,13 +39,15 @@ ngOnInit(){
 
 
   };
-    ApprovedUser(event:Event)
+    ApprovedUser(user:any)
 {
   
- const buttonval=event.target as HTMLButtonElement;
- this.StatusChangeObj.email=buttonval.value;
+ //const buttonval=event.target as HTMLButtonElement;
+ this.StatusChangeObj.email=user.email;
+
  //console.log(buttonval.value);
  this.StatusChangeObj.isconfirm='approved';
+this.StatusChangeObj.phone_no=user.phone_no;
   console.log(this.StatusChangeObj);
 
  this.userservices.ChangeConfirmUserStatuse(this.StatusChangeObj).subscribe(response=>{
@@ -53,12 +55,13 @@ console.log(response);
 this.ngOnInit();
  });
 }
-RejectUser(event:Event)
+RejectUser(user:any)
 {
-  const buttonval=event.target as HTMLButtonElement;
+  //const buttonval=event.target as HTMLButtonElement;
  // console.log(buttonval);
- this.StatusChangeObj.email=buttonval.value;
+ this.StatusChangeObj.email=user.email;
  this.StatusChangeObj.isconfirm='Reject';
+ this.StatusChangeObj.phone_no=user.phone_no;
  console.log(this.StatusChangeObj);
   this.userservices.ChangeConfirmUserStatuse(this.StatusChangeObj).subscribe(response=>{
     console.log(response);

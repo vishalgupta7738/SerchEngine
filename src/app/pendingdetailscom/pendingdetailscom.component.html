@@ -21,12 +21,12 @@
           <td data-label="Registration Date">{{user.registerdate}}</td>
           <td data-label="IsConfirm">{{user.isconfirm}}</td>
           <td data-label="Approve">
-            <button type="button" class="btn btn-outline-success" (click)="ApprovedUser($event)" value="{{user.email}}">
+            <button type="button" class="btn btn-outline-success" (click)="ApprovedUser(user)">
               Approve
             </button>
           </td>
           <td data-label="Reject">
-            <button type="button" class="btn btn-outline-danger" (click)="RejectUser($event)" value="{{user.email}}">
+            <button type="button" class="btn btn-outline-danger" (click)="RejectUser(user)">
               Reject
             </button>
           </td>
